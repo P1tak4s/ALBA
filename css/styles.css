@@ -1347,6 +1347,8 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 940px) {
   .nav, .header-cta { display: none; }
   .nav-toggle { display: inline-flex; }
+  /* keep the language toggle grouped with the menu button on the right */
+  .lang-menu { margin-left: auto; }
 }
 
 @media (max-width: 760px) {
@@ -1927,11 +1929,36 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (max-width: 620px) {
   .service-featured { grid-column: span 1; flex-direction: column; }
   .sf-photo { width: 100%; height: 200px; min-height: 0; }
-  .hero-photo { max-width: 250px; }
-  .hero-photo-wrap { padding: 2% 0 5%; }
 }
 @media (max-width: 760px) {
   .photo-band { background-attachment: scroll; }
+}
+
+/* ===================================================================
+   MOBILE OVERHAUL — phones: message-first hero, calm rhythm
+   =================================================================== */
+@media (max-width: 760px) {
+  /* Hero: lead with the words; photo becomes a small supporting visual below */
+  .hero { padding-top: 14px; padding-bottom: clamp(48px, 12vw, 80px); }
+  .hero-inner { gap: 1.9rem; }
+  .hero-visual { order: 0; width: 100%; max-width: none; margin: 0; }
+  .hero-accent { display: none; }
+  .hero-photo-wrap { width: 230px; max-width: 78%; margin-inline: auto; padding: 0; }
+  .hero-photo { width: 100%; height: 290px; aspect-ratio: auto; max-width: none; object-fit: cover; border-width: 5px; }
+  .hero-badge { bottom: 10px; left: -6px; font-size: 0.82rem; padding: 0.55rem 0.9rem; }
+  .hero-title { margin-bottom: 0.9rem; }
+  .hero-sub { margin-bottom: 1.6rem; }
+
+  /* Calmer focal band on phones */
+  .photo-band { padding-block: clamp(64px, 17vw, 116px); }
+  .photo-band-quote { font-size: clamp(1.7rem, 7.6vw, 2.3rem); max-width: 14ch; }
+
+  /* Featured service: image sits as a neat top banner */
+  .sf-body { padding: 1.8rem 1.6rem; }
+
+  /* Slightly tighter cards & headings for a calmer scroll */
+  .trust-card, .step, .promise-card { padding: 1.8rem 1.5rem; }
+  .about-sign { font-size: 1.7rem; }
 }
 
 /* ---------- Reduced motion ---------- */
