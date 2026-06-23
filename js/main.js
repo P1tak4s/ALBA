@@ -94,6 +94,18 @@
 
   /* ---------- Service "Book Now" prefills the form ---------- */
   const serviceSelect = document.getElementById("service");
+
+  // Prefill the service from a ?service= query param (set by service-card links)
+  if (serviceSelect) {
+    try {
+      const wanted = new URLSearchParams(window.location.search).get("service");
+      if (wanted) {
+        const match = Array.from(serviceSelect.options).find((o) => o.value === wanted);
+        if (match) serviceSelect.value = wanted;
+      }
+    } catch (e) { /* no-op */ }
+  }
+
   document.querySelectorAll(".service-link[data-service]").forEach((link) => {
     link.addEventListener("click", () => {
       const value = link.getAttribute("data-service");

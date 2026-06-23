@@ -1,0 +1,11 @@
+# Planning / dev files — keep in the repo, but don't deploy them publicly
+seo/
+*.md
+.impeccable.md
+.vercel
+
+# Unused source assets (not referenced by the live site)
+footmark-cream.png
+Gallery/Logo/Alba logo.png
+Gallery/Logo/Favicon.png
+Gallery/Logo/alba-wellbeing-logo.png
