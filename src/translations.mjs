@@ -25,6 +25,11 @@ export default {
   "Created with professional knowledge and human presence.": { lt: "Sukurta su profesinėmis žiniomis ir žmogišku buvimu.", ru: "Создано с профессиональными знаниями и человеческим присутствием." },
   "Call +44 7300 403632": { lt: "Skambinti +44 7300 403632", ru: "Позвонить +44 7300 403632" },
   "Call or text": { lt: "Skambinti arba rašyti", ru: "Звонок или сообщение" },
+  "Start with a free conversation": { lt: "Pradėkite nuo nemokamo pokalbio", ru: "Начните с бесплатного разговора" },
+  "Two hands gently resting together in soft warm light": { lt: "Dvi rankos švelniai ilsisi viena šalia kitos šiltoje šviesoje", ru: "Две руки нежно покоятся вместе в мягком тёплом свете" },
+  "Two hands held together in warmth and support": { lt: "Dvi rankos, švelniai susikibusios, šiltai ir su palaikymu", ru: "Две руки, держащиеся вместе, в тепле и поддержке" },
+  "A calm moment of stillness — herbal tea in soft morning light": { lt: "Rami tylos akimirka, žolelių arbata švelnioje ryto šviesoje", ru: "Спокойный миг тишины, травяной чай в мягком утреннем свете" },
+  "Two hands held together in warmth and care": { lt: "Dvi rankos, švelniai susikibusios, šiltai ir su rūpesčiu", ru: "Две руки, держащиеся вместе, в тепле и заботе" },
 
   /* ---------------- Home: titles/meta ---------------- */
   "ALBA Wellbeing — Gentle, Trusted Wellbeing & Companionship in Louth": { lt: "ALBA Wellbeing — švelni, patikima gerovės pagalba ir palydėjimas Louth mieste", ru: "ALBA Wellbeing — мягкая, надёжная поддержка благополучия и сопровождение в Louth" },

@@ -12,3 +12,6 @@ Gallery/Logo/alba-wellbeing-logo.png
 
 # i18n build sources
 src/
+
+# image sources (deploy only webp)
+Gallery/img/*.png
