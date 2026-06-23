@@ -20,10 +20,10 @@
   --bronze-deep:  #8A6038;
   --taupe:        #7C6A53;  /* darkened from #9C8B77 → ~4.5:1 on cream (WCAG AA for small labels) */
 
-  /* Gentle secondary accents — sage & muted gold (used sparingly) */
-  --sage:         #8C9B86;
-  --sage-soft:    #DCE3D4;
-  --sage-deep:    #62725C;
+  /* Gentle secondary accents — warm sand & bronze (used sparingly) */
+  --sage:         #C8A56E;
+  --sage-soft:    #EFE3CF;
+  --sage-deep:    #8A6038;
   --gold:         #BE9E5E;
 
   /* Lines & shadows */
@@ -1463,7 +1463,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   padding: clamp(80px, 12vw, 150px) 0 clamp(48px, 7vw, 84px);
   background:
     radial-gradient(900px 460px at 78% -10%, rgba(200,162,118,0.22), transparent 62%),
-    radial-gradient(700px 460px at 0% 110%, rgba(140,155,134,0.16), transparent 60%),
+    radial-gradient(700px 460px at 0% 110%, rgba(200,168,120,0.16), transparent 60%),
     var(--cream);
   overflow: hidden;
 }
@@ -1507,7 +1507,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   margin: 0 auto 1.1rem;
   display: grid; place-items: center;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--sage-soft), #C9D4C0);
+  background: linear-gradient(135deg, var(--sage-soft), #E7D2AE);
   color: var(--sage-deep);
 }
 .trust-ic svg { width: 28px; height: 28px; }
@@ -1598,7 +1598,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   position: relative;
   background:
     radial-gradient(700px 380px at 20% 0%, rgba(168,123,78,0.30), transparent 60%),
-    radial-gradient(700px 420px at 90% 100%, rgba(140,155,134,0.28), transparent 60%),
+    radial-gradient(700px 420px at 90% 100%, rgba(200,168,120,0.26), transparent 60%),
     var(--cocoa);
   color: var(--cream-soft);
   text-align: center;
@@ -1706,31 +1706,66 @@ ul { margin: 0; padding: 0; list-style: none; }
   .cta-actions .btn { width: 100%; }
 }
 
-/* ---------- Language switcher ---------- */
-.lang-switch {
+/* ---------- Language switcher (compact dropdown, far right) ---------- */
+.header-inner .header-cta { order: 4; }
+.header-inner .lang-menu  { order: 5; }
+.header-inner .nav-toggle { order: 6; }
+
+.lang-menu { position: relative; flex-shrink: 0; }
+.lang-menu summary {
+  list-style: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 2px;
-  padding: 3px;
+  gap: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cocoa-soft);
+  padding: 0.46rem 0.7rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.45);
-  flex-shrink: 0;
+  transition: border-color .25s ease, color .25s ease, background .25s ease;
 }
-.lang-switch a {
-  font-family: var(--sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover { color: var(--cocoa); border-color: var(--bronze); }
+.lang-menu .chev { width: 10px; height: 10px; transition: transform .3s ease; opacity: 0.7; }
+.lang-menu[open] summary { color: var(--cocoa); border-color: var(--bronze); }
+.lang-menu[open] .chev { transform: rotate(180deg); }
+
+.lang-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 160px;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  padding: 6px;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: langIn .2s ease;
+}
+@keyframes langIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.lang-pop a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--cocoa-soft);
-  padding: 0.32rem 0.5rem;
-  border-radius: 999px;
-  line-height: 1;
-  transition: background .25s ease, color .25s ease;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  white-space: nowrap;
 }
-.lang-switch a:hover { color: var(--cocoa); background: rgba(168, 123, 78, 0.12); }
-.lang-switch a.active { background: linear-gradient(135deg, var(--bronze), var(--bronze-deep)); color: #FBF7F0; }
-@media (max-width: 360px) { .lang-switch a { padding: 0.3rem 0.42rem; font-size: 0.68rem; } }
+.lang-pop a:hover { background: rgba(168, 123, 78, 0.1); color: var(--cocoa); }
+.lang-pop a.active { color: var(--bronze-deep); font-weight: 700; }
+.lang-pop a.active::after { content: "✓"; margin-left: 1rem; }
 
 /* ---------- Sticky mobile call / book bar ---------- */
 .mobile-cta-bar {

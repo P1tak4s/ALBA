@@ -22,12 +22,16 @@ function decode(s) {
 const LANG_HTML = { en: "English", lt: "Lietuvių", ru: "Русский" };
 
 function switcher(path, loc) {
+  const names = { en: "English", lt: "Lietuvių", ru: "Русский" };
   const links = LOCALES.map((l) => {
     const href = l === "en" ? "/" + path : `/${l}/` + path;
     const active = l === loc ? ' class="active" aria-current="true"' : "";
-    return `<a href="${href}" hreflang="${l}"${active}>${l.toUpperCase()}</a>`;
+    return `<a href="${href}" hreflang="${l}"${active}>${names[l]}</a>`;
   }).join("");
-  return `<div class="lang-switch" role="group" aria-label="Language / Kalba / Язык">${links}</div>`;
+  return `<details class="lang-menu"><summary aria-label="Language / Kalba / Язык">` +
+    `<span class="lang-code">${loc.toUpperCase()}</span>` +
+    `<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>` +
+    `</summary><div class="lang-pop">${links}</div></details>`;
 }
 
 function hreflang(path) {

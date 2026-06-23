@@ -207,6 +207,18 @@
     document.body.appendChild(bar);
   }
 
+  /* ---------- Language dropdown: close on outside click / Escape ---------- */
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll("details.lang-menu[open]").forEach((d) => {
+      if (!d.contains(e.target)) d.removeAttribute("open");
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll("details.lang-menu[open]").forEach((d) => d.removeAttribute("open"));
+    }
+  });
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
