@@ -181,6 +181,18 @@
     });
   }
 
+  /* ---------- Sticky mobile call / book bar ---------- */
+  if (document.body && !document.querySelector(".mobile-cta-bar")) {
+    const bar = document.createElement("div");
+    bar.className = "mobile-cta-bar";
+    bar.innerHTML =
+      '<a href="tel:+447300403632" class="mcb-call btn btn-ghost" aria-label="Call ALBA Wellbeing on +44 7300 403632">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2.1 2.4A16 16 0 0 1 4 6.1 2 2 0 0 1 6.5 3.5Z"/></svg>' +
+      '</a>' +
+      '<a href="contact.html#booking-form" class="mcb-book btn btn-primary">Book a Consultation</a>';
+    document.body.appendChild(bar);
+  }
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();

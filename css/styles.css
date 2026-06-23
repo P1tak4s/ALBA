@@ -1706,6 +1706,44 @@ ul { margin: 0; padding: 0; list-style: none; }
   .cta-actions .btn { width: 100%; }
 }
 
+/* ---------- Sticky mobile call / book bar ---------- */
+.mobile-cta-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 90;
+  display: none;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+  background: rgba(251, 247, 240, 0.9);
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  border-top: 1px solid var(--line-soft);
+  box-shadow: 0 -8px 28px -14px rgba(74, 54, 36, 0.4);
+}
+.mobile-cta-bar .btn { padding-block: 0.9rem; }
+.mobile-cta-bar .mcb-call {
+  flex: 0 0 auto;
+  width: 54px;
+  padding-inline: 0;
+}
+.mobile-cta-bar .mcb-call svg { width: 22px; height: 22px; }
+.mobile-cta-bar .mcb-book { flex: 1; }
+
+@media (max-width: 760px) {
+  .mobile-cta-bar { display: flex; }
+  body { padding-bottom: 78px; }
+}
+
+/* ---------- Tighter, comfier mobile spacing ---------- */
+@media (max-width: 600px) {
+  .section { padding-block: clamp(54px, 13vw, 84px); }
+  .page-hero { padding-top: clamp(46px, 13vw, 92px); padding-bottom: clamp(34px, 8vw, 56px); }
+  .hero { padding-top: 24px; }
+  .hero-figure { height: clamp(290px, 58vw, 380px); }
+  .section-head { margin-bottom: clamp(30px, 7vw, 48px); }
+  .lead { font-size: 1.4rem; }
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
