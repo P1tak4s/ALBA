@@ -4,6 +4,21 @@
 (function () {
   "use strict";
 
+  /* ---------- Locale-aware strings ---------- */
+  const LANG = (document.documentElement.lang || "en").slice(0, 2);
+  const I18N = {
+    en: { open: "Open menu", close: "Close menu", sending: "Sending…", book: "Book a Consultation",
+          err: "Please add your name and a valid email so I can reply.",
+          ok: (n) => "Thank you, " + n + ". Your request has been received — I will be in touch personally, with care." },
+    lt: { open: "Atidaryti meniu", close: "Uždaryti meniu", sending: "Siunčiama…", book: "Užsisakyti konsultaciją",
+          err: "Įrašykite vardą ir galiojantį el. paštą, kad galėčiau atsakyti.",
+          ok: (n) => "Ačiū, " + n + ". Jūsų žinutė gauta. Asmeniškai ir su rūpesčiu su jumis susisieksiu." },
+    ru: { open: "Открыть меню", close: "Закрыть меню", sending: "Отправка…", book: "Записаться на консультацию",
+          err: "Укажите имя и корректную эл. почту, чтобы я могла ответить.",
+          ok: (n) => "Спасибо, " + n + ". Ваше сообщение получено. Я свяжусь с вами лично и с заботой." }
+  };
+  const TXT = I18N[LANG] || I18N.en;
+
   const header   = document.querySelector(".site-header");
   const navToggle = document.getElementById("nav-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -23,12 +38,12 @@
   const closeMenu = () => {
     mobileMenu.hidden = true;
     navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", "Open menu");
+    navToggle.setAttribute("aria-label", TXT.open);
   };
   const openMenu = () => {
     mobileMenu.hidden = false;
     navToggle.setAttribute("aria-expanded", "true");
-    navToggle.setAttribute("aria-label", "Close menu");
+    navToggle.setAttribute("aria-label", TXT.close);
   };
 
   navToggle.addEventListener("click", () => {
@@ -151,7 +166,7 @@
       else setError(email, false);
 
       if (!valid) {
-        status.textContent = "Please add your name and a valid email so I can reply.";
+        status.textContent = TXT.err;
         status.classList.add("error");
         (name.classList.contains("invalid") ? name : email).focus();
         return;
@@ -161,14 +176,13 @@
       const btn = form.querySelector('button[type="submit"]');
       const original = btn.textContent;
       btn.disabled = true;
-      btn.textContent = "Sending…";
+      btn.textContent = TXT.sending;
 
       window.setTimeout(() => {
         form.reset();
         btn.disabled = false;
         btn.textContent = original;
-        status.textContent = "Thank you, " + name.value.trim().split(" ")[0] +
-          ". Your request has been received — I will be in touch personally, with care.";
+        status.textContent = TXT.ok(name.value.trim().split(" ")[0]);
         status.classList.add("success");
         status.scrollIntoView({ behavior: "smooth", block: "center" });
       }, 900);
@@ -189,7 +203,7 @@
       '<a href="tel:+447300403632" class="mcb-call btn btn-ghost" aria-label="Call ALBA Wellbeing on +44 7300 403632">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 3.5 9 4l1 4-2 1.5a12 12 0 0 0 6.5 6.5L16 14l4 1 .5 2.5a2 2 0 0 1-2.1 2.4A16 16 0 0 1 4 6.1 2 2 0 0 1 6.5 3.5Z"/></svg>' +
       '</a>' +
-      '<a href="contact.html#booking-form" class="mcb-book btn btn-primary">Book a Consultation</a>';
+      '<a href="contact.html#booking-form" class="mcb-book btn btn-primary">' + TXT.book + "</a>";
     document.body.appendChild(bar);
   }
 

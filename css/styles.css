@@ -1706,6 +1706,32 @@ ul { margin: 0; padding: 0; list-style: none; }
   .cta-actions .btn { width: 100%; }
 }
 
+/* ---------- Language switcher ---------- */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+}
+.lang-switch a {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--cocoa-soft);
+  padding: 0.32rem 0.5rem;
+  border-radius: 999px;
+  line-height: 1;
+  transition: background .25s ease, color .25s ease;
+}
+.lang-switch a:hover { color: var(--cocoa); background: rgba(168, 123, 78, 0.12); }
+.lang-switch a.active { background: linear-gradient(135deg, var(--bronze), var(--bronze-deep)); color: #FBF7F0; }
+@media (max-width: 360px) { .lang-switch a { padding: 0.3rem 0.42rem; font-size: 0.68rem; } }
+
 /* ---------- Sticky mobile call / book bar ---------- */
 .mobile-cta-bar {
   position: fixed;
