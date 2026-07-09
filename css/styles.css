@@ -2042,11 +2042,9 @@ ul { margin: 0; padding: 0; list-style: none; }
   --cocoa:      #241B12;   /* darker → premium headings + richer dark sections */
   --cocoa-soft: #4E3D2C;
 
-  /* — Sage / forest green — SECONDARY grounding accent only — */
-  --green:       #4C5A47;   /* deep muted sage */
-  --green-deep:  #313D2D;   /* forest — for dark section anchors */
-  --green-soft:  #E2E7DB;   /* pale sage tint */
-  --green-line:  rgba(76, 90, 71, 0.22);
+  /* — Warm accent tints (bronze family) — replaces earlier sage-green details — */
+  --bronze-tint:  #EFE0C6;
+  --accent-line:  rgba(168, 123, 78, 0.22);
 
   /* — Spacing scale — */
   --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
@@ -2062,7 +2060,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   --font-5xl: clamp(2.7rem, 6.2vw, 4.7rem);
 
   /* — Radius — */
-  --radius-xs: 10px; --radius-sm: 16px; --radius: 24px; --radius-lg: 36px; --radius-pill: 999px;
+  --radius-xs: 10px; --radius-sm: 16px; --radius: 22px; --radius-lg: 36px; --radius-pill: 999px;
 
   /* — Softer, layered shadows — */
   --shadow-sm: 0 2px 10px rgba(45, 34, 20, 0.06);
@@ -2099,14 +2097,16 @@ body { font-size: var(--font-base); }
 .center .eyebrow, .center-eyebrow { justify-content: center; }
 .hero-eyebrow::before { width: 20px; }
 
-/* ---------- Buttons — refined ---------- */
+/* ---------- Buttons — refined (primary = dark cocoa accent) ---------- */
 .btn { letter-spacing: 0.03em; padding: 1.05rem 2rem; }
 .btn-primary {
-  background: linear-gradient(135deg, #B78751 0%, var(--bronze-deep) 100%);
-  box-shadow: 0 16px 34px -14px rgba(138, 96, 56, 0.7);
+  background: linear-gradient(135deg, #3A2B1C 0%, var(--cocoa) 100%);
+  color: #FBF7F0;
+  box-shadow: 0 14px 30px -14px rgba(36, 27, 18, 0.58);
 }
-.btn-primary:hover { box-shadow: 0 26px 46px -16px rgba(138, 96, 56, 0.85); }
-.btn-ghost:hover { border-color: var(--green); background: rgba(76, 90, 71, 0.06); }
+.btn-primary:hover { color: #FBF7F0; transform: translateY(-2px); box-shadow: 0 24px 46px -16px rgba(36, 27, 18, 0.66); }
+.btn-ghost { border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--bronze); background: rgba(168, 123, 78, 0.07); }
 
 /* ---------- Header — condense on scroll ---------- */
 .site-header { transition: background .35s ease, box-shadow .35s ease, height .35s ease; }
@@ -2195,9 +2195,9 @@ body { font-size: var(--font-base); }
 /* ---------- Photo band → deep sage/forest anchor (green as grounding accent) ---------- */
 .photo-band {
   background:
-    radial-gradient(700px 420px at 18% 0%, rgba(76,90,71,0.55), transparent 62%),
+    radial-gradient(700px 420px at 18% 0%, rgba(168, 123, 78,0.55), transparent 62%),
     radial-gradient(760px 460px at 88% 100%, rgba(35,27,18,0.5), transparent 60%),
-    linear-gradient(150deg, var(--green-deep) 0%, #2A2318 100%);
+    linear-gradient(150deg, var(--cocoa) 0%, #2A2318 100%);
 }
 .photo-band::before {
   content: ""; position: absolute; inset: 0;
@@ -2218,27 +2218,27 @@ body { font-size: var(--font-base); }
   top: 0.35rem; left: 1.4rem;
   font-family: var(--serif);
   font-size: 4.6rem; line-height: 1;
-  color: rgba(76, 90, 71, 0.28);
+  color: rgba(168, 123, 78, 0.28);
   pointer-events: none;
 }
 .promise-card p { font-size: 1.5rem; }
-.promise-card cite { color: var(--green); }
+.promise-card cite { color: var(--bronze-deep); }
 
 /* ---------- Sage-green secondary details (used sparingly) ---------- */
-.trust-ic { background: linear-gradient(135deg, var(--green-soft), #D7DECB); color: var(--green-deep); }
-.feature-list li::before { background: radial-gradient(circle at 35% 35%, var(--green), var(--green-deep)); }
+.trust-ic { background: linear-gradient(135deg, var(--bronze-tint), #E7D2AE); color: var(--cocoa); }
+.feature-list li::before { background: radial-gradient(circle at 35% 35%, var(--bronze-deep), var(--cocoa)); }
 .creed-item { position: relative; }
 .creed-item::after {
   content: ""; position: absolute; left: 1.5rem; bottom: 1.5rem;
-  width: 30px; height: 2px; background: var(--green); opacity: 0.6; border-radius: 2px;
+  width: 30px; height: 2px; background: var(--bronze-deep); opacity: 0.6; border-radius: 2px;
 }
-.cred-label { color: var(--green); }
-.faq-item[open] { border-color: var(--green-line); }
+.cred-label { color: var(--bronze-deep); }
+.faq-item[open] { border-color: var(--accent-line); }
 
 /* Dark sections grounded with a hint of forest depth */
 .cta-band {
   background:
-    radial-gradient(700px 400px at 18% 0%, rgba(76,90,71,0.42), transparent 60%),
+    radial-gradient(700px 400px at 18% 0%, rgba(168, 123, 78,0.42), transparent 60%),
     radial-gradient(700px 420px at 90% 100%, rgba(168,123,78,0.26), transparent 60%),
     var(--cocoa);
 }
@@ -2247,10 +2247,10 @@ body { font-size: var(--font-base); }
 .trust-card, .service-card, .step, .promise-card, .price-card, .help-item, .cred-card {
   transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, border-color .4s ease;
 }
-.cred-card:hover, .help-item:hover { border-color: var(--green-line); }
+.cred-card:hover, .help-item:hover { border-color: var(--accent-line); }
 
 /* ---------- Focus visibility (AA) ---------- */
-:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--bronze-deep); outline-offset: 3px; }
 .btn:focus-visible { outline-offset: 4px; }
 
 /* ---------- Small-screen material sizing ---------- */
@@ -2265,3 +2265,91 @@ body { font-size: var(--font-base); }
 @media (max-width: 460px) {
   :root { --radius-lg: 28px; }
 }
+
+/* ===================================================================
+   ██ MOCKUP LAYOUT PASS 2026-07 — warm palette kept (cream/cocoa/bronze),
+   calling-card hero, watermark steps, layered warm hero background.
+   No sage green: the earlier green accents were recoloured to bronze/cocoa.
+   =================================================================== */
+
+/* Eyebrow: tighter tracking per mockup */
+.eyebrow { letter-spacing: 0.26em; font-weight: 600; }
+
+/* ---------- HERO — layered warm background (bronze glow TR + accent glow BL + grain) ---------- */
+.hero { position: relative; }
+.hero::before {                       /* soft accent glow, bottom-left */
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: radial-gradient(620px 480px at 3% 98%, rgba(200, 168, 120, 0.16), transparent 62%);
+}
+.hero::after {                        /* very subtle grain overlay */
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background-image: var(--grain); opacity: 0.045; mix-blend-mode: soft-light;
+}
+.hero .hero-inner { position: relative; z-index: 1; }
+.hero-inner { grid-template-columns: 1.25fr 0.75fr; }
+
+/* Trust-tick row: top hairline above the ticks */
+.hero-meta { padding-top: 1.2rem; margin-top: 1.6rem; border-top: 1px solid var(--line); gap: 0.5rem 1.6rem; }
+
+/* ---------- HERO right column → real-logo "calling-card" assurance panel ---------- */
+.hero-visual { align-self: center; }
+.calling-card {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-top: 3px solid var(--bronze);
+  border-radius: 22px;
+  padding: 2.2rem 2rem 1.7rem;
+  box-shadow: var(--shadow-lg), 0 2px 8px rgba(45, 34, 20, 0.05);
+  max-width: 420px;
+  margin-inline: auto;
+}
+.cc-logo { width: min(210px, 62%); height: auto; margin: 0 auto 1.2rem; display: block; }
+.cc-caption {
+  text-align: center; text-transform: uppercase; letter-spacing: 0.2em;
+  font-size: 0.66rem; font-weight: 600; color: var(--taupe); margin: 0 0 0.55rem;
+}
+.cc-lead {
+  text-align: center; font-family: var(--serif); font-style: italic;
+  font-size: 1.35rem; color: var(--cocoa); line-height: 1.35; margin: 0 0 1.5rem;
+}
+.cc-creds { display: flex; flex-direction: column; }
+.cc-creds li {
+  display: flex; align-items: flex-start; gap: 0.7rem;
+  padding: 0.8rem 0; border-top: 1px solid var(--line-soft);
+  font-size: 0.98rem; color: var(--cocoa-soft); font-weight: 500; line-height: 1.4;
+}
+.cc-creds li:first-child { border-top: none; }
+.cc-creds li::before {
+  content: ""; flex-shrink: 0; margin-top: 0.1rem;
+  width: 19px; height: 19px; border-radius: 50%;
+  background-color: rgba(168, 123, 78, 0.14);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238A6038' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-11'/%3E%3C/svg%3E");
+  background-size: 12px; background-position: center; background-repeat: no-repeat;
+}
+.cc-footer {
+  text-align: center; text-transform: uppercase; letter-spacing: 0.16em;
+  font-size: 0.66rem; font-weight: 600; color: var(--taupe); margin: 1.35rem 0 0;
+}
+
+/* stack the card below the hero copy on mobile (override earlier order:-1) */
+@media (max-width: 980px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { order: 0; width: 100%; max-width: 440px; margin-inline: auto; }
+}
+
+/* ---------- Three gentle steps → hairline-topped columns + watermark numerals ---------- */
+.steps .step {
+  background: transparent; border: none; border-top: 1px solid var(--line);
+  border-radius: 0; box-shadow: none; text-align: left;
+  padding: 2.3rem 0.3rem 0; position: relative;
+}
+.steps .step-num {
+  position: absolute; top: 1.1rem; left: -0.2rem;
+  width: auto; height: auto; margin: 0; background: none; box-shadow: none;
+  border-radius: 0; font-family: var(--serif); font-weight: 400;
+  font-size: 4.6rem; line-height: 1; color: var(--cream-deep);
+  z-index: 0; pointer-events: none;
+}
+.steps .step h3, .steps .step p { position: relative; z-index: 1; }
+.steps .step h3 { margin-top: 0.6rem; }
+.steps .step:hover { transform: none; }
