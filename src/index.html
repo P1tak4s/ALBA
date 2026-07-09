@@ -29,13 +29,15 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
+    "@type": ["MedicalBusiness", "LocalBusiness"],
+    "@id": "https://www.albawellbeing.co.uk/#business",
     "name": "ALBA Wellbeing",
     "description": "Professional live-in care, companionship and complex-care support — dementia, Parkinson's, stroke, cancer, reduced mobility and palliative care — with optional wellbeing support, in Louth, Lincolnshire and beyond. A combination of professional knowledge and human presence.",
     "url": "https://www.albawellbeing.co.uk/",
     "telephone": "+447300403632",
     "email": "albalinasima25@icloud.com",
     "image": "https://www.albawellbeing.co.uk/og-image.png",
+    "logo": "https://www.albawellbeing.co.uk/Gallery/Logo/alba-wellbeing-logo-web.png",
     "priceRange": "££",
     "areaServed": [
       {"@type": "City", "name": "Louth"},
@@ -45,7 +47,21 @@
       {"@type": "AdministrativeArea", "name": "Lincolnshire"}
     ],
     "address": {"@type": "PostalAddress", "addressLocality": "Louth", "addressRegion": "Lincolnshire", "addressCountry": "GB"},
-    "founder": {"@type": "Person", "name": "Lina Simavičiūtė", "alternateName": "Alba"},
+    "geo": {"@type": "GeoCoordinates", "latitude": 53.3665, "longitude": -0.0053},
+    "founder": {"@type": "Person", "name": "Lina Simavičiūtė", "alternateName": "Alba", "jobTitle": "Professional Live-in Carer & Wellbeing Companion"},
+    "knowsAbout": ["Live-in care", "Dementia care", "Parkinson's disease care", "Stroke recovery", "Palliative and end-of-life care", "Companionship", "Rehabilitation support", "Hypnotherapy", "Reiki"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Care & wellbeing services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Live-in care & companionship"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Complex & condition care (dementia, Parkinson's, stroke, cancer)"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Everyday support & housekeeping"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Rehabilitation support"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "End-of-life & palliative companionship"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Optional wellbeing support (hypnotherapy, massage, Reiki)"}}
+      ]
+    },
     "slogan": "Professional Knowledge. Human Presence. A Happy We."
   }
   </script>
@@ -116,7 +132,7 @@
           <div class="hero-photo-wrap">
             <span class="hero-accent" aria-hidden="true"></span>
             <img src="/Gallery/img/hero.webp" alt="Two hands gently resting together in soft warm light"
-                 class="hero-photo" width="880" height="1100" loading="eager" decoding="async" />
+                 class="hero-photo" width="880" height="1100" loading="lazy" decoding="async" />
             <div class="hero-badge"><span class="hb-ic" aria-hidden="true">&#10022;</span> Free first conversation</div>
           </div>
         </div>
