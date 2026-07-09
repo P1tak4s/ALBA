@@ -384,6 +384,18 @@ ul { margin: 0; padding: 0; list-style: none; }
 .hero-meta li { display: inline-flex; align-items: center; gap: 0.5rem; }
 .hero-meta span { color: var(--bronze); }
 
+/* Hero brand mantra — the four ideas, directly under the headline */
+.hero-mantra {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 2.2vw, 1.62rem);
+  font-style: italic;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--bronze-deep);
+  max-width: 30ch;
+  margin-bottom: 1.2rem;
+}
+
 /* Hero visual */
 .hero-visual { position: relative; }
 .hero-chip {
@@ -465,6 +477,31 @@ ul { margin: 0; padding: 0; list-style: none; }
   width: 48px; height: 2px;
   background: var(--bronze);
   border-radius: 2px;
+}
+
+/* ===================================================================
+   CREED — what ALBA stands for (homepage)
+   =================================================================== */
+.creed { background: var(--cream-soft); }
+.creed-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.1rem;
+  max-width: 940px;
+  margin: clamp(32px, 5vw, 56px) auto 0;
+  padding: 0;
+  list-style: none;
+}
+.creed-item {
+  font-family: var(--serif);
+  font-size: 1.28rem;
+  line-height: 1.4;
+  color: var(--cocoa);
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-sm);
+  padding: 1.6rem 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 /* ===================================================================
@@ -893,6 +930,17 @@ ul { margin: 0; padding: 0; list-style: none; }
   letter-spacing: 0.01em;
 }
 .contact-phone:hover .contact-phone-num { color: var(--bronze-deep); }
+.contact-email-line {
+  margin: -0.6rem 0 1.4rem;
+  font-size: 1.05rem;
+}
+.contact-email-line a {
+  color: var(--bronze-deep);
+  border-bottom: 1px solid var(--line-soft);
+  padding-bottom: 1px;
+  transition: color .3s ease, border-color .3s ease;
+}
+.contact-email-line a:hover { color: var(--cocoa); border-color: rgba(168, 123, 78, 0.5); }
 
 .contact-form {
   background: var(--card);

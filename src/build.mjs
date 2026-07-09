@@ -5,7 +5,8 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import T from "./translations.mjs";
 
 const PAGES = ["index.html","about.html","hypnotherapy.html","end-of-life.html","contact.html","consent.html"];
-const LOCALES = ["en","lt","ru"];
+const ALL_LOCALES = ["en","lt","ru"];               // languages that exist (for hreflang + switcher links)
+const LOCALES = (process.env.LOCALES ? process.env.LOCALES.split(",") : ALL_LOCALES); // which to emit this run
 const ORIGIN = "https://www.albawellbeing.co.uk";
 
 const NAMED = { rsquo:"’", lsquo:"‘", ldquo:"“", rdquo:"”", mdash:"—",
@@ -23,7 +24,7 @@ const LANG_HTML = { en: "English", lt: "Lietuvių", ru: "Русский" };
 
 function switcher(path, loc) {
   const names = { en: "English", lt: "Lietuvių", ru: "Русский" };
-  const links = LOCALES.map((l) => {
+  const links = ALL_LOCALES.map((l) => {
     const href = l === "en" ? "/" + path : `/${l}/` + path;
     const active = l === loc ? ' class="active" aria-current="true"' : "";
     return `<a href="${href}" hreflang="${l}"${active}>${names[l]}</a>`;
@@ -35,7 +36,7 @@ function switcher(path, loc) {
 }
 
 function hreflang(path) {
-  return LOCALES.map((l) => {
+  return ALL_LOCALES.map((l) => {
     const href = l === "en" ? `${ORIGIN}/` + path : `${ORIGIN}/${l}/` + path;
     return `<link rel="alternate" hreflang="${l}" href="${href}" />`;
   }).join("\n  ") + `\n  <link rel="alternate" hreflang="x-default" href="${ORIGIN}/${path}" />`;
