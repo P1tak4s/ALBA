@@ -605,4 +605,13 @@ export default {
   "Quiet company and conversation, reading together, gentle reassurance, sitting with someone so they aren’t alone, and giving family the chance to rest. Everything is shaped tenderly around the person’s wishes.": { lt: "Rami draugija ir pokalbiai, skaitymas kartu, švelni paguoda, buvimas šalia, kad žmogus nebūtų vienas, ir galimybė šeimai pailsėti. Viskas švelniai derinama prie žmogaus norų.", ru: "Тихая компания и беседы, совместное чтение, мягкая поддержка, присутствие рядом, чтобы человек не был один, и возможность семье отдохнуть. Всё бережно выстраивается вокруг желаний человека." },
   "If you need a gentle presence, I’m here": { lt: "Jei jums reikia švelnaus buvimo šalia, aš esu čia", ru: "Если вам нужно мягкое присутствие, я рядом" },
   "Reaching out can feel hard. There’s no need to have the right words — just call or message, and we’ll talk gently about what would help.": { lt: "Susisiekti gali būti sunku. Nereikia tinkamų žodžių, tiesiog paskambinkite ar parašykite, ir švelniai pasikalbėsime apie tai, kas galėtų padėti.", ru: "Сделать первый шаг бывает трудно. Не нужно подбирать правильные слова, просто позвоните или напишите, и мы мягко поговорим о том, что могло бы помочь." },
+
+  /* ---------------- Calling-card hero (mockup layout pass 2026-07) ---------------- */
+  "Professional live-in care": { lt: "Profesionali gyvenamoji priežiūra", ru: "Профессиональный уход с проживанием" },
+  "Together, creating a happy we.": { lt: "Kartu kuriame laimingą bendrystę.", ru: "Вместе создаём счастливое «мы»." },
+  "Medically trained & qualified": { lt: "Medicininis pasirengimas ir kvalifikacija", ru: "Медицинская подготовка и квалификация" },
+  "Self-employed, 5 years UK experience": { lt: "Dirbu savarankiškai, 5 metų patirtis Jungtinėje Karalystėje", ru: "Самозанятая, 5 лет опыта в Великобритании" },
+  "Live-in, complex & palliative care": { lt: "Gyvenamoji, sudėtinga ir paliatyvi priežiūra", ru: "Уход с проживанием, сложный и паллиативный" },
+  "Full driving licence, happy to travel": { lt: "Pilnas vairuotojo pažymėjimas, mielai keliauju", ru: "Полные водительские права, с радостью приеду" },
+  "Louth · Lincolnshire · & beyond": { lt: "Louth · Lincolnshire · ir aplinkui", ru: "Louth · Lincolnshire · и окрестности" },
 };
