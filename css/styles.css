@@ -1,6 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&display=swap');
+
 /* ===================================================================
    ALBA Wellbeing — Calm Luxury Wellness
    Cream / chocolate / bronze · editorial · warm · premium
+   Premium redesign 2026-07: Fraunces headings + Manrope body,
+   formal token scales, sage-green secondary accent, material panels.
+   (Override section appended at end of file.)
    =================================================================== */
 
 /* ---------- Design tokens ---------- */
@@ -2013,6 +2018,250 @@ ul { margin: 0; padding: 0; list-style: none; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
-  .hero-chip { animation: none; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  .hero-chip, .hero-figure { animation: none; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ===================================================================
+   ██ PREMIUM REDESIGN 2026-07 — warm editorial · Fraunces · sage accent
+   Appended override layer. Warm ivory/sand/bronze LEADS; a deep muted
+   sage/forest green is a SECONDARY grounding accent (dark anchors, small
+   details); bronze/gold stays the sparing highlight. Photo-light: stock
+   photos are replaced by CSS material panels (gradient + grain + botanical).
+   Everything here is pure CSS so it flows to /, /lt/ and /ru/ identically.
+   =================================================================== */
+:root {
+  /* — Type — */
+  --serif:  "Fraunces", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --sans:   "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: var(--serif);
+  --font-body:    var(--sans);
+
+  /* — Warm near-black ink (WCAG-strong on cream) — */
+  --ink:        #1E1B16;
+  --cocoa:      #241B12;   /* darker → premium headings + richer dark sections */
+  --cocoa-soft: #4E3D2C;
+
+  /* — Sage / forest green — SECONDARY grounding accent only — */
+  --green:       #4C5A47;   /* deep muted sage */
+  --green-deep:  #313D2D;   /* forest — for dark section anchors */
+  --green-soft:  #E2E7DB;   /* pale sage tint */
+  --green-line:  rgba(76, 90, 71, 0.22);
+
+  /* — Spacing scale — */
+  --space-1: 0.25rem; --space-2: 0.5rem;  --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.5rem;  --space-6: 2rem;    --space-7: 3rem;    --space-8: 4rem;
+  --space-9: 6rem;    --space-10: 8rem;
+
+  /* — Fluid type scale — */
+  --font-xs: 0.75rem; --font-sm: 0.875rem; --font-base: 1.075rem; --font-lg: 1.2rem;
+  --font-xl: 1.45rem;
+  --font-2xl: clamp(1.55rem, 2.6vw, 2.05rem);
+  --font-3xl: clamp(2rem, 4vw, 2.9rem);
+  --font-4xl: clamp(2.4rem, 5.2vw, 3.7rem);
+  --font-5xl: clamp(2.7rem, 6.2vw, 4.7rem);
+
+  /* — Radius — */
+  --radius-xs: 10px; --radius-sm: 16px; --radius: 24px; --radius-lg: 36px; --radius-pill: 999px;
+
+  /* — Softer, layered shadows — */
+  --shadow-sm: 0 2px 10px rgba(45, 34, 20, 0.06);
+  --shadow-md: 0 22px 52px -26px rgba(45, 34, 20, 0.32);
+  --shadow-lg: 0 46px 92px -44px rgba(45, 34, 20, 0.44);
+
+  /* — Material textures (reused by hero + panels) — */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --botanical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 300' fill='none' stroke='%23A87B4E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M100 292 C100 220 100 150 100 40'/%3E%3Cpath d='M100 212 C70 192 55 166 52 135 C86 140 104 172 100 212 Z'/%3E%3Cpath d='M100 172 C130 152 145 126 148 95 C114 100 96 132 100 172 Z'/%3E%3Cpath d='M100 132 C74 114 62 92 60 64 C90 70 104 98 100 132 Z'/%3E%3Cpath d='M100 96 C126 81 138 58 140 34 C112 40 98 66 100 96 Z'/%3E%3Ccircle cx='100' cy='33' r='5' fill='%23A87B4E' stroke='none'/%3E%3C/svg%3E");
+}
+
+/* ---------- Typography — Fraunces display, confident scale ---------- */
+h1, h2, h3, h4 {
+  font-optical-sizing: auto;
+  font-weight: 500;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+}
+body { font-size: var(--font-base); }
+.hero-title      { font-size: var(--font-5xl); font-weight: 500; letter-spacing: -0.022em; }
+.section-title   { font-size: var(--font-4xl); font-weight: 500; }
+.page-hero h1    { font-size: var(--font-4xl); font-weight: 500; }
+.section-intro   { font-size: var(--font-lg); }
+.lead            { font-weight: 400; }
+.prose p         { font-size: 1.12rem; line-height: 1.75; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  color: var(--bronze-deep);
+}
+.eyebrow::before {
+  content: ""; width: 26px; height: 1.5px; background: var(--bronze);
+  opacity: 0.8; border-radius: 2px;
+}
+.center .eyebrow, .center-eyebrow { justify-content: center; }
+.hero-eyebrow::before { width: 20px; }
+
+/* ---------- Buttons — refined ---------- */
+.btn { letter-spacing: 0.03em; padding: 1.05rem 2rem; }
+.btn-primary {
+  background: linear-gradient(135deg, #B78751 0%, var(--bronze-deep) 100%);
+  box-shadow: 0 16px 34px -14px rgba(138, 96, 56, 0.7);
+}
+.btn-primary:hover { box-shadow: 0 26px 46px -16px rgba(138, 96, 56, 0.85); }
+.btn-ghost:hover { border-color: var(--green); background: rgba(76, 90, 71, 0.06); }
+
+/* ---------- Header — condense on scroll ---------- */
+.site-header { transition: background .35s ease, box-shadow .35s ease, height .35s ease; }
+.site-header.scrolled { height: 64px; background: rgba(247, 242, 234, 0.94); backdrop-filter: saturate(150%) blur(9px); -webkit-backdrop-filter: saturate(150%) blur(9px); }
+.site-header.scrolled .brand-text { font-size: 1.42rem; transition: font-size .35s ease; }
+.brand-text { transition: font-size .35s ease; }
+
+/* ---------- Material panel base (photo-light) ---------- */
+.material-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(130% 120% at 30% 18%, #FBF3E4 0%, #EFE0C6 52%, #E3D0AF 100%);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-lg);
+}
+.material-panel::before {   /* paper grain */
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--grain);
+  opacity: 0.06; mix-blend-mode: soft-light; pointer-events: none;
+}
+.material-panel::after {    /* botanical line-art motif */
+  content: ""; position: absolute; inset: 0;
+  background: var(--botanical) center 60% / auto 74% no-repeat;
+  opacity: 0.16; pointer-events: none;
+}
+
+/* ---------- HERO — typographic / material focal (no stock photo) ---------- */
+/* ponytail: stock hero.webp hidden via CSS; drop the <img> from src/index.html later to skip the fetch entirely. Real photo can replace this panel via .hero-photo-wrap background. */
+.hero-photo { display: none !important; }
+.hero-accent { display: block; }
+.hero-photo-wrap {
+  position: relative;
+  min-height: clamp(360px, 42vw, 520px);
+  padding: 0;
+  border-radius: 999px 999px var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  background: radial-gradient(130% 120% at 30% 16%, #FBF3E4 0%, #EFE0C6 54%, #E3D0AF 100%);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+}
+.hero-photo-wrap::before {   /* grain */
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--grain);
+  opacity: 0.07; mix-blend-mode: soft-light; pointer-events: none; z-index: 1;
+}
+.hero-photo-wrap::after {    /* botanical focal */
+  content: ""; position: absolute; inset: 0;
+  background: var(--botanical) center 58% / auto 76% no-repeat;
+  opacity: 0.2; pointer-events: none; z-index: 1;
+}
+.hero-accent {
+  top: 8%; left: 10%; right: 10%; bottom: 10%;
+  border-radius: 48% 52% 46% 54% / 54% 46% 54% 46%;
+  background: radial-gradient(120% 120% at 32% 26%, rgba(255,251,243,0.9), rgba(217,190,151,0.35) 70%);
+  filter: blur(10px); z-index: 0;
+}
+.hero-badge { z-index: 3; }
+
+/* ---------- Portrait frames (About) — material, no stock photo ---------- */
+/* ponytail: portrait care.webp/about.webp hidden; replace .portrait-inner background with a real photo later. */
+.portrait-inner img, .portrait-photo { display: none !important; }
+.portrait-inner {
+  position: relative;
+  background: radial-gradient(130% 120% at 30% 16%, #FBF3E4 0%, #ECDBBE 55%, #DFC9A4 100%);
+}
+.portrait-inner::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--grain); opacity: 0.06; mix-blend-mode: soft-light;
+}
+.portrait-inner::after {
+  content: ""; position: absolute; inset: 0;
+  background: var(--botanical) center 62% / auto 70% no-repeat; opacity: 0.18;
+}
+
+/* ---------- Featured service — material side panel instead of photo ---------- */
+.sf-photo { display: none !important; }
+.service-featured::before {
+  content: ""; flex: 0 0 40%; align-self: stretch; position: relative;
+  background: radial-gradient(120% 130% at 30% 20%, #F3E6CD, #DFC7A0);
+  border-right: 1px solid var(--line-soft);
+}
+.service-featured { position: relative; }
+
+/* ---------- Photo band → deep sage/forest anchor (green as grounding accent) ---------- */
+.photo-band {
+  background:
+    radial-gradient(700px 420px at 18% 0%, rgba(76,90,71,0.55), transparent 62%),
+    radial-gradient(760px 460px at 88% 100%, rgba(35,27,18,0.5), transparent 60%),
+    linear-gradient(150deg, var(--green-deep) 0%, #2A2318 100%);
+}
+.photo-band::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: var(--grain); opacity: 0.08; mix-blend-mode: soft-light; pointer-events: none;
+}
+.photo-band > .container { position: relative; z-index: 1; }
+.photo-band-quote { color: #F6EFE2; }
+
+/* ---------- "A promise of care" → editorial pull-quotes (not star reviews) ---------- */
+.promise-stars { display: none !important; }   /* remove the 5-star look entirely */
+.promise-card {
+  padding-top: 3.2rem;
+  background: linear-gradient(180deg, var(--card), #FCF7EE);
+}
+.promise-card::before {
+  content: "\201C";
+  position: absolute;
+  top: 0.35rem; left: 1.4rem;
+  font-family: var(--serif);
+  font-size: 4.6rem; line-height: 1;
+  color: rgba(76, 90, 71, 0.28);
+  pointer-events: none;
+}
+.promise-card p { font-size: 1.5rem; }
+.promise-card cite { color: var(--green); }
+
+/* ---------- Sage-green secondary details (used sparingly) ---------- */
+.trust-ic { background: linear-gradient(135deg, var(--green-soft), #D7DECB); color: var(--green-deep); }
+.feature-list li::before { background: radial-gradient(circle at 35% 35%, var(--green), var(--green-deep)); }
+.creed-item { position: relative; }
+.creed-item::after {
+  content: ""; position: absolute; left: 1.5rem; bottom: 1.5rem;
+  width: 30px; height: 2px; background: var(--green); opacity: 0.6; border-radius: 2px;
+}
+.cred-label { color: var(--green); }
+.faq-item[open] { border-color: var(--green-line); }
+
+/* Dark sections grounded with a hint of forest depth */
+.cta-band {
+  background:
+    radial-gradient(700px 400px at 18% 0%, rgba(76,90,71,0.42), transparent 60%),
+    radial-gradient(700px 420px at 90% 100%, rgba(168,123,78,0.26), transparent 60%),
+    var(--cocoa);
+}
+
+/* ---------- Card polish — unify hover lift + hairline ---------- */
+.trust-card, .service-card, .step, .promise-card, .price-card, .help-item, .cred-card {
+  transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, border-color .4s ease;
+}
+.cred-card:hover, .help-item:hover { border-color: var(--green-line); }
+
+/* ---------- Focus visibility (AA) ---------- */
+:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.btn:focus-visible { outline-offset: 4px; }
+
+/* ---------- Small-screen material sizing ---------- */
+@media (max-width: 980px) {
+  .hero-photo-wrap { min-height: clamp(280px, 60vw, 380px); max-width: 460px; margin-inline: auto; }
+}
+@media (max-width: 620px) {
+  .service-featured { flex-direction: column; }
+  .service-featured::before { flex-basis: 160px; width: 100%; border-right: none; border-bottom: 1px solid var(--line-soft); }
+  .hero-photo-wrap { border-radius: 999px 999px var(--radius) var(--radius); }
+}
+@media (max-width: 460px) {
+  :root { --radius-lg: 28px; }
 }
