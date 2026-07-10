@@ -614,4 +614,8 @@ export default {
   "Live-in, complex & palliative care": { lt: "Gyvenamoji, sudėtinga ir paliatyvi priežiūra", ru: "Уход с проживанием, сложный и паллиативный" },
   "Full driving licence, happy to travel": { lt: "Pilnas vairuotojo pažymėjimas, mielai keliauju", ru: "Полные водительские права, с радостью приеду" },
   "Louth · Lincolnshire · & beyond": { lt: "Louth · Lincolnshire · ir aplinkui", ru: "Louth · Lincolnshire · и окрестности" },
+
+  /* ---------------- Photography alt text (2026-07-10) ---------------- */
+  "Softly folded blankets and linen in a warm, cosy home": { lt: "Švelniai sulankstytos antklodės ir lininiai audiniai jaukiuose, šiltuose namuose", ru: "Мягко сложенные пледы и льняное бельё в уютном, тёплом доме" },
+  "A lit candle, rolled towels and smooth stones in soft warm light": { lt: "Deganti žvakė, susukti rankšluosčiai ir lygūs akmenukai švelnioje šiltoje šviesoje", ru: "Зажжённая свеча, свёрнутые полотенца и гладкие камни в мягком тёплом свете" },
 };
