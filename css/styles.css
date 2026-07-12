@@ -2460,3 +2460,68 @@ body { font-size: var(--font-base); }
   .principles-grid { gap: 0.55rem; }
   .principle { font-size: 1.04rem; padding: 0.6rem 1.15rem; }
 }
+
+/* ===================================================================
+   ██ ACCESSIBILITY FLOOR 2026-07-12 — legibility for 45–70 audience.
+   Nothing below 16px anywhere (nav, footers, captions, labels, legal).
+   Tap targets ≥ 48px. Appended last so it wins the cascade. Shared →
+   applies to /, /lt/, /ru/ automatically.
+   =================================================================== */
+
+/* Reading copy & links — 16px minimum */
+.nav-list a,
+.footer-nav a,
+.footer-tagline,
+.footer-base p,
+.service-card > p:not(.service-tag),
+.service-link,
+.trust-card p,
+.step p,
+.cred-note,
+.note-flex,
+.price-note,
+.crumb,
+.doc-back,
+.form-status,
+.form-disclaimer,
+.radio-pill span,
+.aside-card .ac-row,
+.lang-pop a,
+.hero-meta,
+.hero-badge,
+.hero-chip,
+.cc-creds li,
+.promise-card cite { font-size: 1rem; }
+
+/* Slightly roomier for the longest reading blocks */
+.service-card > p:not(.service-tag),
+.trust-card p,
+.step p { font-size: 1.02rem; }
+
+/* Legal / footer fine print — never below 16px (brief: incl. legal) */
+.footer-place,
+.form-disclaimer,
+.brand-statement-tagline,
+.legal-lead { font-size: 1rem; }
+.legal-list li::before { font-size: 0.95rem; }   /* counter digit inside a 1.8rem disc */
+
+/* Tracked-uppercase kickers/labels → 16px, tracking eased so they don't over-widen */
+.eyebrow,
+.hero-eyebrow,
+.service-tag,
+.cred-label,
+.cc-caption,
+.cc-footer,
+.contact-phone-label,
+.session-type legend,
+.dims-label,
+.brand-text-sub { font-size: 1rem; letter-spacing: 0.14em; }
+.hero-eyebrow { letter-spacing: 0.06em; }         /* long string — keep it tight */
+
+/* Language switcher control */
+.lang-menu summary { font-size: 1rem; min-height: 44px; }
+
+/* Tap targets ≥ 48px (buttons, menu toggle) */
+.btn { min-height: 48px; }
+.btn-sm { font-size: 1rem; padding: 0.72rem 1.35rem; }
+.nav-toggle { width: 48px; height: 48px; }
