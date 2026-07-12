@@ -1643,7 +1643,6 @@ ul { margin: 0; padding: 0; list-style: none; }
   box-shadow: var(--shadow-sm);
   position: relative;
 }
-.promise-stars { color: var(--gold); letter-spacing: 0.15em; font-size: 0.95rem; margin-bottom: 0.9rem; }
 .promise-card p { font-family: var(--serif); font-size: 1.45rem; font-style: italic; color: var(--cocoa); line-height: 1.4; margin: 0 0 1rem; }
 .promise-card cite { font-style: normal; font-weight: 600; font-size: 0.88rem; color: var(--taupe); letter-spacing: 0.04em; }
 .promise-note { text-align: center; margin-top: 2rem; color: var(--brown); font-style: italic; font-family: var(--serif); font-size: 1.05rem; }
@@ -2207,7 +2206,6 @@ body { font-size: var(--font-base); }
 .photo-band-quote { color: #F6EFE2; }
 
 /* ---------- "A promise of care" → editorial pull-quotes (not star reviews) ---------- */
-.promise-stars { display: none !important; }   /* remove the 5-star look entirely */
 .promise-card {
   padding-top: 3.2rem;
   background: linear-gradient(180deg, var(--card), #FCF7EE);
