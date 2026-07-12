@@ -2466,6 +2466,15 @@ body { font-size: var(--font-base); }
    applies to /, /lt/, /ru/ automatically.
    =================================================================== */
 
+/* Nudge two label tokens darker so they clear WCAG AA (4.5:1) on the
+   darker sections too (sand #ECE3D3, sage-soft, cream-deep), not just
+   cream. Both were ~4.1–4.45:1 there; now ~4.8–4.9:1. Neither is used
+   as light text on a dark section, so this only ever raises contrast. */
+:root {
+  --taupe:       #715F48;   /* was #7C6A53 */
+  --bronze-deep: #825731;   /* was #8A6038 */
+}
+
 /* Reading copy & links — 16px minimum */
 .nav-list a,
 .footer-nav a,
