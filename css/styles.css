@@ -2525,3 +2525,6 @@ body { font-size: var(--font-base); }
 .btn { min-height: 48px; }
 .btn-sm { font-size: 1rem; padding: 0.72rem 1.35rem; }
 .nav-toggle { width: 48px; height: 48px; }
+
+/* Body scroll-lock while the mobile menu is open (JS toggles .menu-open) */
+body.menu-open { overflow: hidden; }

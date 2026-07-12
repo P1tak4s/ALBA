@@ -33,17 +33,27 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  /* ---------- Mobile menu ---------- */
+  /* ---------- Mobile menu (focus-trapped, scroll-locked) ---------- */
   if (navToggle && mobileMenu) {
-  const closeMenu = () => {
-    mobileMenu.hidden = true;
-    navToggle.setAttribute("aria-expanded", "false");
-    navToggle.setAttribute("aria-label", TXT.open);
-  };
+  // visible, focusable elements inside the menu
+  const focusables = () =>
+    Array.from(mobileMenu.querySelectorAll("a[href], button:not([disabled])"))
+      .filter((n) => n.offsetParent !== null);
+
   const openMenu = () => {
     mobileMenu.hidden = false;
     navToggle.setAttribute("aria-expanded", "true");
     navToggle.setAttribute("aria-label", TXT.close);
+    document.body.classList.add("menu-open");   // ponytail: overflow:hidden lock; iOS rubber-band is acceptable here
+    const f = focusables();
+    if (f.length) f[0].focus();
+  };
+  const closeMenu = (restoreFocus) => {
+    mobileMenu.hidden = true;
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", TXT.open);
+    document.body.classList.remove("menu-open");
+    if (restoreFocus !== false) navToggle.focus();
   };
 
   navToggle.addEventListener("click", () => {
@@ -51,16 +61,27 @@
     else closeMenu();
   });
 
+  // tapping a link navigates — close but don't yank focus back to the toggle
   mobileMenu.addEventListener("click", (e) => {
-    if (e.target.closest("a")) closeMenu();
+    if (e.target.closest("a")) closeMenu(false);
   });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && !mobileMenu.hidden) closeMenu();
   });
 
+  // trap Tab within the open menu
+  mobileMenu.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const f = focusables();
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 940 && !mobileMenu.hidden) closeMenu();
+    if (window.innerWidth > 940 && !mobileMenu.hidden) closeMenu(false);
   });
   } /* end mobile menu */
 
