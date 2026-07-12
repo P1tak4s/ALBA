@@ -31,7 +31,6 @@ function switcher(path, loc) {
   }).join("");
   return `<details class="lang-menu"><summary aria-label="Language / Kalba / Язык">` +
     `<span class="lang-code">${loc.toUpperCase()}</span>` +
-    `<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>` +
     `</summary><div class="lang-pop">${links}</div></details>`;
 }
 
