@@ -1,0 +1,40 @@
+---
+// The signature: the logo built from Lina's real portrait. The solid arch is her photo, the
+// open arch beside it is "you", and the lens where they overlap is lit with first light.
+// It breathes at a resting rate (we.ts). Same geometry as Mark.astro, as arches not domes.
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  lina: string;
+  you: string;
+  priority?: boolean;
+  class?: string;
+}
+const { src, alt, lina, you, priority = false, class: cls = '' } = Astro.props;
+---
+<figure class:list={['we', cls]} data-we="intro" style="--we:0" data-we-base="0">
+  <div class="we__stage">
+    <div class="we__arch we__arch--solid">
+      <Picture
+        src={src}
+        alt={alt}
+        formats={['avif', 'webp']} fallbackFormat="jpg"
+        widths={[360, 540, 720, 960]}
+        sizes="(min-width: 1100px) 26vw, (min-width: 700px) 40vw, 62vw"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
+        decoding="async"
+        class="we__img"
+      />
+      <span class="we__lens" aria-hidden="true"></span>
+    </div>
+    <div class="we__arch we__arch--open" aria-hidden="true"></div>
+  </div>
+  <figcaption class="we__caption">
+    <span class="we__name">{lina}</span>
+    <span class="we__you" aria-hidden="true">{you}</span>
+  </figcaption>
+</figure>

@@ -1,0 +1,43 @@
+---
+import Mark from './Mark.astro';
+import { dicts, href, navPages, site, type Locale } from '../i18n';
+
+interface Props { locale: Locale; finale?: boolean }
+const { locale, finale = true } = Astro.props;
+const t = dicts[locale].common;
+const year = new Date().getFullYear();
+---
+<footer class="footer on-night">
+  {finale && (
+    <section class="finale wrap" aria-labelledby="finale-title">
+      <div class="finale__mark" aria-hidden="true"><Mark mode="still" we={0} class="mark--night" /></div>
+      <h2 class="finale__title" id="finale-title" data-split="lines">{t.finale.h2}</h2>
+      <p class="finale__text">{t.finale.text}</p>
+      <div class="finale__contact">
+        <p class="finale__label">{t.finale.phoneLabel}</p>
+        <a class="finale__phone" href={`tel:${site.tel}`}><span>{t.phoneDisplay}</span></a>
+        <p class="finale__label">{t.finale.emailLabel}</p>
+        <a class="finale__email link" href={`mailto:${site.email}`}>{site.email}</a>
+      </div>
+      <div class="finale__cta">
+        <a class="btn btn--light" href={href(locale, 'contact')}><span class="btn__label">{t.book}</span></a>
+      </div>
+    </section>
+  )}
+  <div class="footer__base wrap">
+    <p class="footer__motto">{t.motto}</p>
+    <nav class="footer__nav" aria-label={t.footer.pagesLabel}>
+      <ul>
+        <li><a class="draw" href={href(locale, 'home')}>{t.breadcrumbHome}</a></li>
+        {navPages.map((p) => <li><a class="draw" href={href(locale, p)}>{t.nav[p as keyof typeof t.nav]}</a></li>)}
+        <li><a class="draw" href={href(locale, 'consent')}>{t.footer.agreement}</a></li>
+      </ul>
+    </nav>
+    <div class="footer__small">
+      <p>{t.footer.area}</p>
+      <p>{t.footer.disclaimer}</p>
+      <p class="footer__coords">{t.footer.coords}</p>
+      <p>© {year} {t.brand}. {t.footer.rights}</p>
+    </div>
+  </div>
+</footer>

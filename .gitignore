@@ -6,3 +6,13 @@
 *.log
 Thumbs.db
 .vercel
+
+# Astro
+node_modules/
+dist/
+.astro/
+.shots/
+.serve.mjs
+.snap.mjs
+.icons.mjs
+.shots-*.txt

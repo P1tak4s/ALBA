@@ -1,0 +1,22 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Blocks from '../../components/Blocks.astro';
+import ArchPhoto from '../../components/ArchPhoto.astro';
+import photo from '../../assets/hero-home.webp';
+import { absolute, dicts, href, localePaths, type Locale } from '../../i18n';
+import { faqSchema, serviceSchema } from '../../i18n/schema';
+
+export const getStaticPaths = localePaths;
+const { locale } = Astro.props as { locale: Locale };
+const d = dicts[locale];
+const p = d.pages.liveIn;
+const url = absolute(href(locale, 'liveIn'));
+const schema = [...serviceSchema(p.serviceName, p.description, url, locale), ...faqSchema(p.blocks, url)];
+---
+<Base locale={locale} page="liveIn" title={p.title} description={p.description} crumb={p.crumb} schema={schema}>
+  <PageHero locale={locale} ask={p.ask} h1={p.h1} lead={p.lead}>
+    <ArchPhoto slot="figure" src={photo} alt={p.image.alt} caption={p.image.caption} priority />
+  </PageHero>
+  <Blocks blocks={p.blocks} faqLabel={d.common.faqLabel} />
+</Base>

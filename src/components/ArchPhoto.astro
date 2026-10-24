@@ -1,0 +1,16 @@
+---
+// An atmospheric photo in the arch shape, standing on the horizon. No people: these are the
+// rooms and small rituals of a home. Replace with real photos when Lina has them.
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+interface Props { src: ImageMetadata; alt: string; caption?: string; priority?: boolean }
+const { src, alt, caption, priority = false } = Astro.props;
+---
+<figure class="photo photo--horizon">
+  <div class="photo__frame">
+    <Picture src={src} alt={alt} formats={['avif', 'webp']} fallbackFormat="jpg" widths={[360, 540, 720, 900]}
+      sizes="(min-width: 1100px) 30vw, (min-width: 700px) 40vw, 80vw"
+      loading={priority ? 'eager' : 'lazy'} fetchpriority={priority ? 'high' : 'auto'} decoding="async" />
+  </div>
+  {caption && <figcaption class="photo__caption">{caption}</figcaption>}
+</figure>

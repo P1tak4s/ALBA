@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import Mark from '../../components/Mark.astro';
+import WeFigure from '../../components/WeFigure.astro';
+import { Picture } from 'astro:assets';
+import { dicts, href, localePaths, site, type Locale, type PageKey } from '../../i18n';
+import linaHero from '../../assets/lina-hero.jpg';
+import linaPortrait from '../../assets/lina-portrait.jpg';
+import tea from '../../assets/tea-stilllife.webp';
+
+export const getStaticPaths = localePaths;
+const { locale } = Astro.props as { locale: Locale };
+const d = dicts[locale];
+const t = d.common;
+const p = d.pages.home;
+const stepWe = [2.4, 0.9, 0];
+---
+<Base locale={locale} page="home" title={p.title} description={p.description}>
+  <section class="hero wrap">
+    <div class="hero__text">
+      <p class="ask" data-split="lines" data-intro>{p.ask}</p>
+      <h1 class="hero__title" data-split="lines" data-intro data-delay="0.2">{p.h1}</h1>
+      <div class="cta-row hero__ctas" data-reveal="up" data-intro data-delay="0.55">
+        <a class="btn btn--ink" href={href(locale, 'contact')}><span class="btn__label">{t.book}</span></a>
+        <a class="btn btn--line" href={`tel:${site.tel}`}><span class="btn__label">{t.call}</span></a>
+      </div>
+      <p class="hero__lead" data-reveal="up" data-intro data-delay="0.45">{p.lead}</p>
+      <p class="hero__note" data-reveal="fade" data-intro data-delay="0.8">{p.heroNote}</p>
+    </div>
+    <div class="hero__figure">
+      <WeFigure src={linaHero} alt={t.figure.alt} lina={t.figure.lina} you={t.figure.you} priority />
+    </div>
+  </section>
+
+  <section class="dialogue wrap" aria-labelledby="q-title">
+    <div class="dialogue__head">
+      <h2 class="section-title" id="q-title" data-split="lines">{p.questions.h2}</h2>
+      <p class="dialogue__intro">{p.questions.intro}</p>
+    </div>
+    <ol class="dialogue__list">
+      {p.questions.items.map((it) => (
+        <li class="qa" data-reveal="up">
+          <h3 class="qa__q">{it.q}</h3>
+          <span class="qa__lens" aria-hidden="true"></span>
+          <div class="qa__a">
+            <p>{it.a}</p>
+            <a class="qa__more" href={href(locale, it.link as PageKey)}><span>{it.more}</span><span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <div class="window wrap">
+    <div class="window__media" data-reveal="clip">
+      <Picture src={tea} alt={p.window.alt} formats={['avif', 'webp']} fallbackFormat="jpg" widths={[480, 800, 1100, 1400]}
+        sizes="(min-width: 768px) 62vw, 92vw" loading="lazy" decoding="async" />
+    </div>
+    <p class="window__caption" data-reveal="up">{p.window.caption}</p>
+  </div>
+
+  <section class="about-short wrap" aria-labelledby="about-title">
+    <div class="about-short__media" data-reveal="clip">
+      <Picture src={linaPortrait} alt={p.about.alt} formats={['avif', 'webp']} fallbackFormat="jpg" widths={[360, 540, 720]}
+        sizes="(min-width: 900px) 30vw, 80vw" loading="lazy" decoding="async" class="arch-img" />
+    </div>
+    <div class="about-short__text">
+      <h2 class="section-title" id="about-title" data-split="lines">{p.about.h2}</h2>
+      {p.about.paras.map((para) => <p>{para}</p>)}
+      <dl class="facts">
+        {p.about.facts.map((f) => <div class="facts__item"><dt>{f.k}</dt><dd>{f.v}</dd></div>)}
+      </dl>
+      <a class="text-link" href={href(locale, 'about')}><span>{p.about.more}</span><span class="arrow" aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="promises on-night" aria-labelledby="promise-title">
+    <div class="wrap promises__inner">
+      <h2 class="promises__label" id="promise-title">{p.promises.h2}</h2>
+      <ul class="promises__list">
+        {p.promises.items.map((it) => <li data-split="lines">{it}</li>)}
+      </ul>
+    </div>
+    <span class="statement__sun" aria-hidden="true"></span>
+  </section>
+
+  <section class="steps wrap" aria-labelledby="steps-title">
+    <h2 class="section-title" id="steps-title" data-split="lines">{p.steps.h2}</h2>
+    <ol class="steps__list">
+      {p.steps.items.map((s, i) => (
+        <li class="step">
+          <Mark mode="reveal" we={stepWe[i]} class="step__mark" />
+          <span class="step__n" aria-hidden="true">{i + 1}</span>
+          <h3 class="step__title">{s.title}</h3>
+          <p>{s.text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+</Base>

@@ -1,0 +1,37 @@
+---
+import Base from '../../layouts/Base.astro';
+import { dicts, href, localePaths, type Locale } from '../../i18n';
+
+export const getStaticPaths = localePaths;
+const { locale } = Astro.props as { locale: Locale };
+const d = dicts[locale];
+const p = d.pages.consent;
+---
+<Base locale={locale} page="consent" title={p.title} description={p.description} crumb={p.crumb} finale={false}>
+  <article class="doc wrap">
+    <header class="doc__head">
+      <h1 class="doc__title">{p.h1}</h1>
+      <p class="doc__lead">{p.lead}</p>
+    </header>
+    <section aria-labelledby="c-before">
+      <h2 id="c-before">{p.before.h2}</h2>
+      <p>{p.before.intro}</p>
+      <ol class="doc__list">{p.before.items.map((it) => <li>{it}</li>)}</ol>
+      <div class="doc__sign">
+        <p>{p.before.sign.name}</p><p>{p.before.sign.signature}</p><p>{p.before.sign.date}</p>
+      </div>
+    </section>
+    <section aria-labelledby="c-conf">
+      <h2 id="c-conf">{p.confidentiality.h2}</h2>
+      {p.confidentiality.paras.map((x) => <p>{x}</p>)}
+    </section>
+    <section aria-labelledby="c-imp">
+      <h2 id="c-imp">{p.important.h2}</h2>
+      {p.important.paras.map((x) => <p>{x}</p>)}
+    </section>
+    <div class="cta-row doc__actions">
+      <button class="btn btn--line" type="button" data-print><span class="btn__label">{p.print}</span></button>
+      <a class="btn btn--ink" href={href(locale, 'contact')}><span class="btn__label">{d.common.book}</span></a>
+    </div>
+  </article>
+</Base>

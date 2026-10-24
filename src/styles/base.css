@@ -1,0 +1,73 @@
+/* Foundation + engine CSS. The look lives in tokens.css and site.css. */
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html {
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  background: var(--c-bg);
+  color: var(--c-fg);
+  scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+body {
+  min-height: 100dvh;
+  font-family: var(--f-text);
+  font-size: var(--t-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  overflow-x: clip;
+}
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+img { height: auto; }
+input, button, textarea, select { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { font-weight: inherit; font-size: inherit; text-wrap: balance; }
+p, li, dd { text-wrap: pretty; }
+ul, ol { padding: 0; list-style: none; }
+::selection { background: var(--c-accent); color: var(--c-fg); }
+
+/* Accessibility */
+:focus-visible { outline: 3px solid var(--c-ember); outline-offset: 3px; border-radius: 2px; }
+.on-night :focus-visible { outline-color: var(--c-accent); }
+#main:focus { outline: none; }
+.skip-link {
+  position: fixed; left: var(--gutter); top: 0.75rem; z-index: calc(var(--z-curtain) + 1);
+  padding: 0.75em 1.25em; background: var(--c-fg); color: var(--c-bg); border-radius: var(--pill);
+  translate: 0 -200%;
+}
+.skip-link:focus-visible { translate: none; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis:not(.lenis-autoToggle).lenis-stopped { overflow: clip; }
+.lenis [data-lenis-prevent] { overscroll-behavior: contain; }
+
+/* Paper grain under everything: makes the linen feel like a page, not a screen. */
+body::before {
+  content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .18 0 0 0 0 .13 0 0 0 0 .15 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+#main { position: relative; z-index: var(--z-content); overflow-x: clip; }
+
+/* Hidden-until-revealed (only when motion is allowed and JS runs) */
+.motion [data-split], .motion [data-reveal] { visibility: hidden; }
+.split-line { padding-bottom: 0.1em; margin-bottom: -0.1em; } /* descender room inside masks */
+
+/* Curtain: two panels meet in the middle, then part on the new page (morning curtains). */
+#curtain { position: fixed; inset: 0; z-index: var(--z-curtain); pointer-events: none; visibility: hidden; overflow: hidden; }
+.curtain__panel { position: absolute; top: 0; bottom: 0; width: 50.5%; background: var(--c-curtain); }
+.curtain__panel--l { left: 0; }
+.curtain__panel--r { right: 0; }
+.curtain__seam { position: absolute; left: 50%; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--c-accent); transform-origin: 50% 100%; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

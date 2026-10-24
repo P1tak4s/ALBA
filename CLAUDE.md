@@ -1,77 +1,58 @@
 # ALBA Wellbeing
 
 ## Kas tai per projektas
-Statinė trikalbė svetainė vienam asmens verslui. Savininkė Lina Simavičiūtė (Alba), dirba Louth, Lincolnshire ir aplinkiniuose rajonuose bei nuotoliu.
+Trikalbė (EN, LT, RU) svetainė vienam asmens verslui. Savininkė Lina Simavičiūtė (Alba), gyvena Louth, Lincolnshire, dirba apylinkėse ir toliau, hipnoterapija ir internetu.
 
-Pozicionavimas (pakeistas 2026-07-09): NE „wellbeing terapeutė", o **profesionali gyvenamoji (live-in) slaugytoja ir kompanjonė** su medicininiu išsilavinimu, o wellbeing paslaugos (hipnoterapija, Reiki, masažas) yra papildomos. Seną „gydytojos praktikos" rėmą laikyk pasenusiu.
+Pozicionavimas: **profesionali slaugytoja, gyvenanti kartu su prižiūrimu žmogumi (live-in carer)**, su medicininiu išsilavinimu. Wellbeing (hipnoterapija, masažas, Reiki, kvėpavimas) yra papildoma. „Gydytojos“ rėmo ir viešų kainų nebėra.
 
-Auditorija: 45-70 m. žmonės ir jų šeimos nariai, dažnai pažeidžiami (liga, senėjimas, gedulas). Skaito telefone, neskubėdami. Tonas: šiltas, žmogiškas, patikimas, niekada kliniškas.
+Auditorija: 45-70 m. žmonės ir jų šeimos, dažnai susirūpinę. Skaito telefone. Tonas: šiltas, jaukus, žmogiškas, kaip Lina kalbėtų telefonu. Niekada kliniškas.
 
-Šūkis: „Professional Knowledge. Human Presence. A Happy We."
-Kontaktai puslapyje: albalinasima25@icloud.com, +44 7300 403632. Kainos nebeviešinamos, aptariamos individualiai.
+Šūkis: „Professional knowledge. Human presence. A happy we.“
+Kontaktai: albalinasima25@icloud.com, +44 7300 403632. Kainos aptariamos individualiai.
 
-## Stack'as
-- Grynas HTML + CSS + vanilla JS. Jokio framework'o, jokio bundler'io, jokių npm priklausomybių.
-- **`package.json` NĖRA** (patikrinta). `npm install` nereikia.
-- Šriftai per Google Fonts `<link>`: Fraunces (antraštės), Manrope (tekstas). Cormorant Garamond dar linkinamas, bet antraštėms nebenaudojamas.
-- Hostingas: Vercel projektas `alba`, domenas https://www.albawellbeing.co.uk. Projektas susietas su GitHub github.com/P1tak4s/ALBA (public).
-- **Diegimas = `git push origin main`.** Vercel CLI šiam projektui neveikia (nėra teisių org'e), `vercel --prod` nebandyk. Push reiškia LIVE.
+## Stack'as (nuo 2026-10 perdarymo)
+- **Astro 7** (statinis), GSAP + Lenis judesiui, jokio WebGL. `npm ci && npm run build`, išvestis `dist/`.
+- `vercel.json` nurodo Vercel'iui Astro framework'ą ir `dist/`. Vercel projektas `alba`, domenas https://www.albawellbeing.co.uk, auto-deploy iš GitHub `main` (github.com/P1tak4s/ALBA).
+- **Diegimas = `git push origin main`.** `vercel --prod` neveikia (nėra teisių org'e). Push reiškia LIVE.
+- URL išlaikyti tokie patys kaip seni: `build.format: 'preserve'` daro `/about.html`, `/lt/about.html`, `/lt/`. Naujas puslapis: `/live-in-care.html`.
 
-## SVARBU: šakninis HTML yra generuojamas
-Nors build'o įrankių nėra, yra vienas mažas node skriptas:
-
+## Kur kas
 ```
-node src/build.mjs          # generuoja EN šaknyje + lt/ + ru/
-LOCALES=en node src/build.mjs   # tik EN
+src/i18n/en.ts      VISAS angliškas tekstas (šaltinis), Block tipai
+src/i18n/lt.ts      lietuviškas tekstas, tas pats raktų medis (TypeScript tikrina)
+src/i18n/ru.ts      rusiškas tekstas
+src/i18n/index.ts   lokalės, failų vardai (URL), href(), site
+src/i18n/schema.ts  FAQPage ir Service JSON-LD
+src/pages/[...lang]/*.astro   puslapiai (EN šaknyje, LT ir RU aplankuose)
+src/pages/404.astro, sitemap.xml.ts
+src/layouts/Base.astro        head, SEO, hreflang, JSON-LD @graph, header, footer
+src/components/               Mark (logotipo ženklas), WeFigure (hero su Linos nuotrauka), ArchPhoto, PageHero, Blocks, Header, Footer
+src/motion/                   we.ts (ženklo „--we“ varikliukas), ui.ts (meniu, forma, header), setup.ts (užuolaidų perėjimas)
+src/engine/                   awwwards variklis be loader/GL/cursor
+src/styles/                   tokens.css (spalvos, šriftai), base.css, site.css
+public/                       šriftai, favicon, og.png, robots.txt, llms.txt, manifest
+Gallery/Logo/2026/            NAUJAS logotipas (SVG su kreivėmis + PNG)
+DESIGN.md                     koncepcija, sistema, sprendimai
 ```
 
-- Tikrasis HTML šaltinis yra **`src/*.html`** (6 puslapiai) + žodynas `src/translations.mjs`.
-- `index.html`, `about.html`, `contact.html`, `hypnotherapy.html`, `end-of-life.html`, `consent.html` šaknyje ir tie patys 6 failai `lt/` bei `ru/` yra **išvestiniai**. Redaguosi juos tiesiai, kitas build'as perrašys.
-- Vertimas veikia string-match principu: skriptas ieško EN pastraipos kaip rakto `translations.mjs`. Pridėjai naują EN tekstą, pridėk ir LT/RU raktą, kitaip LT/RU puslapyje liks anglų kalba.
-- Raktuose naudok garbanotas kabutes ir apostrofus, nes build'as dekoduoja HTML esybes į unicode. Tiesios kabutės nesutaps.
-- `css/styles.css` ir `js/main.js` NĖRA generuojami, juos redaguok tiesiai. Jie bendri visoms kalboms (absoliutūs keliai `/css/styles.css`, `/js/main.js`).
-
-Taisyklė: naują puslapį reikia visomis trimis kalbomis. Praktiškai tai reiškia: sukurk `src/naujas.html`, įrašyk jį į `PAGES` masyvą `src/build.mjs`, sudėk LT/RU eilutes į `translations.mjs`, paleisk build'ą, papildyk `sitemap.xml`.
-
-## Peržiūra lokaliai
-```
-python3 -m http.server 8000
-```
-Tada http://localhost:8000. `file://` NETINKA: turto keliai absoliutūs, tad `/lt/` ir `/ru/` atsidarytų be stilių.
-
-## Struktūra
-```
-index about contact hypnotherapy end-of-life consent  (.html, EN, generuoti)
-lt/, ru/            tie patys 6 puslapiai, generuoti
-src/                HTML šablonai + build.mjs + translations.mjs
-css/styles.css      vienas ~2500 eilučių failas
-js/main.js          meniu, focus-trap, scroll reveal, formos demo
-Gallery/img/        6 webp nuotraukos, tarp jų lina-portrait.webp
-Gallery/Logo/       logotipo originalai ir perdirbti variantai
-favicon-32.png, favicon-256.png, apple-touch-icon.png, og-image.png
-robots.txt, sitemap.xml (18 URL, visos 3 kalbos)
-seo/                planavimo dokumentai, į deploy neina
-```
-`.vercelignore` išmeta `src/`, `seo/`, `*.md`, nepanaudotus png.
+## Teksto taisymas
+Keisk tik `src/i18n/*.ts`. Pridėjai raktą `en.ts`, pridėk jį ir `lt.ts`, `ru.ts`, kitaip `npm run build`/`astro check` nepraeis. LT tekstui VISADA skill `lt-rasyba` ir `python3 ~/.claude/skills/lt-rasyba/scripts/lt_lint.py src/i18n/lt.ts`.
+Jokio ilgojo brūkšnio (U+2014) niekur.
 
 ## Dizaino taisyklės
-- Paletė šilta: kreminė, šokoladinė, bronzinė. Žalios (sage) nebėra, nors `--sage*` token'ų vardai liko, jų reikšmės yra bronzinės. Nauju žaliu nespalvink.
-- **SVG ikonų nedėk.** 2026-07-12 jos sąmoningai išimtos iš trust ir service kortelių, kontaktų telefono bloko, varnelių ir kalbos meniu. Išvaizda tipografinė, redakcinė. Liko tik telefono ikona lipnioje skambučio juostoje, nes tai vienintelis to mygtuko turinys.
-- Mobilus vaizdas: 16px šrifto grindys visur (net kicker'iuose), 48px lietimo taikiniai. Šis blokas yra paskutinis `styles.css` sluoksnis, nes vėliausias sluoksnis laimi.
-- WCAG AA kontrastas privalomas. Tikros reikšmės `css/styles.css` `:root`:
-  `--taupe` #7C6A53 (patamsintas nuo #9C8B77 dėl ~4.5:1 ant kreminio),
-  `--bronze-deep` #8A6038, `--sage` #C8A56E, `--sage-deep` #8A6038.
-- Veidų negeneruok. Linos nuotrauka yra tikra (`Gallery/img/lina-portrait.webp`). Dirbtinio jos veido kurti NEGALIMA. Kitos nuotraukos yra atmosferinės, be žmonių.
-- ⚠️ `css/styles.css` (2543 eil.) turi chronologinius `!important` sluoksnius, 8 deklaracijos. Vėlesnis sluoksnis atstato tai, ką ankstesnis paslėpė: `.portrait-inner img, .portrait-photo` slepiamas 2169 eil. ir vėl rodomas 2371 eil.; tas pats su `.sf-photo` (2184 ir 2375). Paprastas grep dėl `display:none` meluoja, žiūrėk paskutinį sluoksnį. Sluoksnių nelygink į vieną.
+- Koncepcija „A happy we“: ženklas iš dviejų kupolų ant vieno horizonto (pilnas = Lina, atviras = žmogus, kurį ji prižiūri, persidengimas = „pirmoji šviesa“). Alba = aušra.
+- Paletė jauki: linas `#f6efe6`, avižinė `#ede2d3`, vakaro rašalas `#2e2226`, pirmoji šviesa `#f2a365` (tik plotams), žarija `#9c4a17` (tekstui). Visos poros AA, skaičiai DESIGN.md.
+- Šriftai: Literata (antraštės ir tekstas), Onest (UI: meniu, mygtukai, etiketės). Abu su kirilica, savame hoste `public/fonts/`.
+- Lankstumas: piliulės veiksmams, arkos žmonėms ir nuotraukoms, 1rem kampai kitkam.
+- 16px šrifto grindys, 48px lietimo taikiniai, WCAG AA.
+- Veidų negeneruok. Linos nuotraukos tikros (`src/assets/lina-*.jpg`). Atmosferinės nuotraukos (`src/assets/*.webp`) be žmonių, keistinos tikromis.
 
 ## Spąstai
-- **`~/Desktop/Claude code/` yra iCloud Drive.** iCloud kaišioja „ 2" kopijas į `.git` (`fatal: bad object`), o failai virsta `compressed,dataless`: `cat` grąžina tuščią arba kabo. Prieš rašydamas į įtartiną failą tikrink `ls -lO failas`, `dataless` vėliavėlė reiškia, kad turinio dar nematei. Žr. `gotcha_rev_motors_icloud_desktop.md` ir `gotcha_icloud_dataless_reads.md`.
-- Repo jau turi bent vieną sugadintą ref'ą: `refs/remotes/origin/main 2`. Git dėl jo įspėja, bet veikia.
-- Užsakymo forma yra tik front-end demo. Realiems laiškams reikia `action`/`method` (Formspree ar pan.) ir demo handler'io pašalinimo iš `js/main.js`.
+- Originalus checkout'as `~/Desktop/Claude code/ALBA` yra iCloud Drive (dataless failai, „ 2“ kopijos `.git`'e). Dirbk worktree už iCloud ribų (pvz. `~/dev/alba-redesign`), `node_modules` į iCloud nedėk.
+- Repo turi sugadintą ref'ą `refs/remotes/origin/main 2`. Git įspėja, bet veikia.
+- Kontaktų forma neturi backend'o: ji atidaro lankytojo el. pašto programą (mailto) su paruoštu laišku. Tikram siuntimui reikia Formspree ar pan.
 
-## SEO
-- `robots.txt` leidžia viską ir rodo į `https://www.albawellbeing.co.uk/sitemap.xml`.
-- `sitemap.xml` apima visus 18 URL (6 puslapiai x 3 kalbos). Pridedant puslapį atnaujink rankiniu būdu.
-- Kiekvienas puslapis turi hreflang en/lt/ru + x-default, per lokalę skirtingą canonical ir og:url (juos įrašo build'as per `<!--HREFLANG-->` ir `<!--LANGS-->` vietaženklius).
-- `og-image.png` šaknyje, naudojamas visuose puslapiuose. Favicon rinkinys: `favicon-32.png`, `favicon-256.png`, `apple-touch-icon.png`.
-- JSON-LD: pagrindiniame puslapyje MedicalBusiness + LocalBusiness, vidiniuose BreadcrumbList, paslaugų puslapiuose Service + FAQPage, about puslapyje Person.
+## SEO / GEO
+- `/sitemap.xml` generuojamas (`src/pages/sitemap.xml.ts`), su hreflang alternatyvomis. `robots.txt` aiškiai leidžia AI robotus. `llms.txt` su faktais.
+- Kiekvienas puslapis: unikalus title/description, canonical, hreflang en-GB/lt-LT/ru + x-default, OG/Twitter, JSON-LD @graph (WebSite, LocalBusiness+ProfessionalService, Person, WebPage, BreadcrumbList, Service, FAQPage).
+- QA: `npm run build`, serveris ant 4400, `node ~/.claude/skills/awwwards/scripts/audit.mjs http://127.0.0.1:4400/` (tikslas 0 FAIL, 0 WARN).

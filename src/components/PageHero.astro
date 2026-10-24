@@ -1,0 +1,27 @@
+---
+// Inner-page hero: the visitor's question in italic, the answer as the h1, then the horizon
+// with the mark at its end. A page can slot a figure in place of the mark (About).
+import Mark from './Mark.astro';
+import { dicts, href, site, type Locale } from '../i18n';
+
+interface Props { locale: Locale; ask?: string; h1: string; lead: string; ctas?: boolean }
+const { locale, ask, h1, lead, ctas = true } = Astro.props;
+const t = dicts[locale].common;
+const hasFigure = Astro.slots.has('figure');
+---
+<section class:list={['phero wrap', { 'phero--figure': hasFigure }]}>
+  <div class="phero__text">
+    {ask && <p class="ask" data-split="lines" data-intro>{ask}</p>}
+    <h1 class="phero__title" data-split="lines" data-intro data-delay="0.15">{h1}</h1>
+    <p class="phero__lead" data-reveal="up" data-intro data-delay="0.45">{lead}</p>
+    {ctas && (
+      <div class="cta-row" data-reveal="up" data-intro data-delay="0.6">
+        <a class="btn btn--ink" href={href(locale, 'contact')}><span class="btn__label">{t.book}</span></a>
+        <a class="btn btn--line" href={`tel:${site.tel}`}><span class="btn__label">{t.call}</span></a>
+      </div>
+    )}
+  </div>
+  {hasFigure ? <div class="phero__figure"><slot name="figure" /></div> : (
+    <div class="phero__horizon" aria-hidden="true"><Mark mode="scroll" we={1} class="phero__mark" /></div>
+  )}
+</section>

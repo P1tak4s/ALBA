@@ -1,0 +1,73 @@
+---
+import Mark from './Mark.astro';
+import { dicts, href, locales, navPages, site, type Locale, type PageKey } from '../i18n';
+
+interface Props { locale: Locale; page: PageKey | null }
+const { locale, page } = Astro.props;
+const t = dicts[locale].common;
+const langShort: Record<Locale, string> = { en: 'EN', lt: 'LT', ru: 'RU' };
+---
+<header class="header" data-header>
+  <div class="header__bar wrap">
+    <a class="brand" href={href(locale, 'home')} aria-label={t.homeLabel}>
+      <Mark mode="scroll" we={0.9} class="brand__mark" />
+      <span class="brand__word" aria-hidden="true">{t.brandShort}<span class="brand__sub">{t.brandSub}</span></span>
+    </a>
+
+    <nav class="nav" aria-label={t.navLabel}>
+      <ul class="nav__list">
+        {navPages.map((p) => (
+          <li><a class="nav__link draw" href={href(locale, p)} aria-current={p === page ? 'page' : undefined}>{t.nav[p as keyof typeof t.nav]}</a></li>
+        ))}
+      </ul>
+    </nav>
+
+    <ul class="langs" aria-label={t.langLabel}>
+      {locales.map((l) => (
+        <li>
+          <a class="langs__link draw" href={href(l, page ?? 'home')} hreflang={l} lang={l}
+             aria-current={l === locale ? 'true' : undefined}
+             aria-label={dicts[l].langName}>{langShort[l]}</a>
+        </li>
+      ))}
+    </ul>
+
+    <a class="btn btn--ink btn--sm header__call" href={`tel:${site.tel}`}>
+      <span class="btn__label"><span class="header__call-long">{t.call}</span><span class="header__call-short">{t.callShort}</span></span>
+    </a>
+
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-open>
+      <span class="menu-btn__label">{t.menu}</span>
+      <span class="menu-btn__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<div class="menu" id="menu" hidden data-menu role="dialog" aria-modal="true" aria-label={t.menu}>
+  <div class="menu__top wrap">
+    <a class="brand" href={href(locale, 'home')} aria-label={t.homeLabel}>
+      <Mark class="brand__mark" />
+      <span class="brand__word" aria-hidden="true">{t.brandShort}<span class="brand__sub">{t.brandSub}</span></span>
+    </a>
+    <button class="menu-btn is-open" type="button" data-menu-close>
+      <span class="menu-btn__label">{t.close}</span>
+      <span class="menu-btn__lines" aria-hidden="true"></span>
+    </button>
+  </div>
+  <nav class="menu__nav wrap" aria-label={t.navLabel}>
+    <ul>
+      <li><a class="menu__link" href={href(locale, 'home')} aria-current={page === 'home' ? 'page' : undefined}><span>{t.breadcrumbHome}</span></a></li>
+      {navPages.map((p) => (
+        <li><a class="menu__link" href={href(locale, p)} aria-current={p === page ? 'page' : undefined}><span>{t.nav[p as keyof typeof t.nav]}</span></a></li>
+      ))}
+    </ul>
+  </nav>
+  <div class="menu__foot wrap">
+    <a class="btn btn--ink" href={`tel:${site.tel}`}><span class="btn__label">{t.call}</span></a>
+    <ul class="langs langs--menu" aria-label={t.langLabel}>
+      {locales.map((l) => (
+        <li><a class="langs__link draw" href={href(l, page ?? 'home')} hreflang={l} lang={l} aria-current={l === locale ? 'true' : undefined}>{dicts[l].langName}</a></li>
+      ))}
+    </ul>
+  </div>
+</div>

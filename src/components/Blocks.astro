@@ -1,0 +1,52 @@
+---
+// Renders a page's content blocks on the two hanging lines (col 1 headings, col 7 text).
+// FAQ questions are set in the visitor's voice (Literata italic), answers in Onest.
+import type { Block } from '../i18n/en';
+interface Props { blocks: Block[]; faqLabel: string }
+const { blocks } = Astro.props;
+---
+{blocks.map((b, i) => {
+  if (b.type === 'note') return (
+    <aside class="note wrap"><p class="note__text">{b.text}</p></aside>
+  );
+  if (b.type === 'statement') return (
+    <section class="statement on-night" id={b.id} aria-labelledby={`b${i}`}>
+      <div class="wrap statement__inner">
+        <h2 class="statement__label" id={`b${i}`}>{b.h2}</h2>
+        <p class="statement__quote" data-split="lines">{b.quote}</p>
+        <div class="statement__body">
+          {b.paras.map((p) => <p>{p}</p>)}
+          {b.close && <p class="statement__close">{b.close}</p>}
+        </div>
+      </div>
+      <span class="statement__sun" aria-hidden="true"></span>
+    </section>
+  );
+  return (
+    <section class:list={['block wrap', `block--${b.type}`]} id={b.id} aria-labelledby={`b${i}`}>
+      <h2 class="block__title" id={`b${i}`} data-split="lines">{b.h2}</h2>
+      <div class="block__body">
+        {b.type === 'prose' && b.paras.map((p) => <p>{p}</p>)}
+        {b.type === 'list' && <>
+          {b.intro && <p class="block__intro">{b.intro}</p>}
+          <ul class="ticks">{b.items.map((it) => <li>{it}</li>)}</ul>
+          {b.outro && <p>{b.outro}</p>}
+        </>}
+        {b.type === 'terms' && <>
+          {b.intro && <p class="block__intro">{b.intro}</p>}
+          <dl class="terms">{b.items.map((it) => <div class="terms__item"><dt>{it.title}</dt><dd>{it.text}</dd></div>)}</dl>
+        </>}
+        {b.type === 'faq' && (
+          <div class="faq">
+            {b.items.map((it) => (
+              <details class="faq__item">
+                <summary class="faq__q"><span>{it.q}</span><span class="faq__sign" aria-hidden="true"></span></summary>
+                <div class="faq__a"><p>{it.a}</p></div>
+              </details>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  );
+})}

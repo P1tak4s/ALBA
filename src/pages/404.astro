@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Mark from '../components/Mark.astro';
+import { dicts, href } from '../i18n';
+// English at the root; the page carries short LT and RU lines so every visitor finds a way back.
+const p = dicts.en.pages.notFound;
+---
+<Base locale="en" page={null} title={p.title} description={p.description} noindex>
+  <section class="lost wrap">
+    <div class="lost__mark" aria-hidden="true"><Mark mode="still" we={2.6} /></div>
+    <h1 class="lost__title" data-split="lines" data-intro>{p.h1}</h1>
+    <p class="lost__lead">{p.lead}</p>
+    <div class="cta-row">
+      <a class="btn btn--ink" href="/"><span class="btn__label">{p.home}</span></a>
+      <a class="btn btn--line" href={href('en', 'contact')}><span class="btn__label">{dicts.en.common.nav.contact}</span></a>
+    </div>
+    <ul class="lost__langs">
+      <li lang="lt"><a class="link" href="/lt/">{dicts.lt.pages.notFound.home}</a></li>
+      <li lang="ru"><a class="link" href="/ru/">{dicts.ru.pages.notFound.home}</a></li>
+    </ul>
+  </section>
+</Base>

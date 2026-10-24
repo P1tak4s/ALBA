@@ -1,0 +1,83 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import ArchPhoto from '../../components/ArchPhoto.astro';
+import photo from '../../assets/comfort-details.webp';
+import { dicts, href, localePaths, site, type Locale } from '../../i18n';
+
+export const getStaticPaths = localePaths;
+const { locale } = Astro.props as { locale: Locale };
+const d = dicts[locale];
+const t = d.common;
+const p = d.pages.contact;
+const f = p.form;
+---
+<Base locale={locale} page="contact" title={p.title} description={p.description} crumb={p.crumb} finale={false}>
+  <PageHero locale={locale} ask={p.ask} h1={p.h1} lead={p.lead} ctas={false}>
+    <ArchPhoto slot="figure" src={photo} alt={p.image.alt} caption={p.image.caption} priority />
+  </PageHero>
+
+  <section class="direct wrap" aria-labelledby="direct-title">
+    <h2 class="block__title" id="direct-title">{p.direct.h2}</h2>
+    <div class="direct__body">
+      <p class="direct__label">{p.direct.phoneLabel}</p>
+      <a class="direct__phone" href={`tel:${site.tel}`}><span>{t.phoneDisplay}</span></a>
+      <p class="direct__intl">{t.phoneIntl}</p>
+      <p class="direct__label">{p.direct.emailLabel}</p>
+      <a class="direct__email link" href={`mailto:${site.email}`}>{site.email}</a>
+      <p class="direct__note">{p.direct.note}</p>
+    </div>
+  </section>
+
+  <section class="block wrap writeform" aria-labelledby="form-title">
+    <h2 class="block__title" id="form-title">{f.h2}</h2>
+    <div class="block__body">
+      <p class="block__intro">{f.intro}</p>
+      <form class="form" data-mailform data-to={site.email} data-subject={f.subject} data-required={f.required} data-opened={f.opened} novalidate>
+        <div class="field">
+          <label for="f-name">{f.name}</label>
+          <input id="f-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="f-reach">{f.reach}</label>
+          <input id="f-reach" name="reach" type="text" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="f-who">{f.who}</label>
+          <select id="f-who" name="who">{f.whoOptions.map((o, i) => <option value={i ? o : ''}>{o}</option>)}</select>
+        </div>
+        <div class="field">
+          <label for="f-service">{f.service}</label>
+          <select id="f-service" name="service">{f.serviceOptions.map((o, i) => <option value={i ? o : ''}>{o}</option>)}</select>
+        </div>
+        <div class="field field--wide">
+          <label for="f-message">{f.message}</label>
+          <textarea id="f-message" name="message" rows="6" aria-describedby="f-message-hint"></textarea>
+          <p class="field__hint" id="f-message-hint">{f.messageHint}</p>
+        </div>
+        <div class="field--wide form__foot">
+          <button class="btn btn--ink" type="submit"><span class="btn__label">{f.submit}</span></button>
+          <p class="form__status" role="status" aria-live="polite" data-status></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="block wrap" aria-labelledby="next-title">
+    <h2 class="block__title" id="next-title">{p.next.h2}</h2>
+    <div class="block__body">
+      <ol class="mini-steps">
+        {p.next.items.map((s, i) => <li><span class="mini-steps__n" aria-hidden="true">{i + 1}</span><h3>{s.title}</h3><p>{s.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="block wrap" aria-labelledby="fees-title">
+    <h2 class="block__title" id="fees-title">{p.fees.h2}</h2>
+    <div class="block__body">
+      <p>{p.fees.text}</p>
+      <p class="muted">{p.privacy} <a class="link" href={href(locale, 'consent')}>{p.privacyLink}</a>.</p>
+    </div>
+  </section>
+  <aside class="note wrap"><p class="note__text">{p.emergency}</p></aside>
+</Base>

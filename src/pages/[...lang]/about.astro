@@ -1,0 +1,40 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Blocks from '../../components/Blocks.astro';
+import WeFigure from '../../components/WeFigure.astro';
+import Mark from '../../components/Mark.astro';
+import { dicts, localePaths, type Locale } from '../../i18n';
+import linaPortrait from '../../assets/lina-portrait.jpg';
+
+export const getStaticPaths = localePaths;
+const { locale } = Astro.props as { locale: Locale };
+const d = dicts[locale];
+const t = d.common;
+const p = d.pages.about;
+---
+<Base locale={locale} page="about" title={p.title} description={p.description} crumb={p.crumb}>
+  <PageHero locale={locale} ask={p.ask} h1={p.h1} lead={p.lead}>
+    <WeFigure slot="figure" src={linaPortrait} alt={p.alt} lina={t.figure.lina} you={t.figure.you} priority />
+  </PageHero>
+
+  <section class="block block--prose block--story wrap" aria-labelledby="story-title">
+    <h2 class="block__title" id="story-title" data-split="lines">{p.story.h2}</h2>
+    <div class="block__body">
+      {p.story.paras.map((para) => <p>{para}</p>)}
+      <dl class="facts facts--rows">
+        {p.story.facts.map((f) => <div class="facts__item"><dt>{f.k}</dt><dd>{f.v}</dd></div>)}
+      </dl>
+    </div>
+  </section>
+
+  <section class="name wrap" aria-labelledby="name-title">
+    <div class="name__mark" aria-hidden="true"><Mark mode="scroll" we={1.2} /></div>
+    <div class="name__text">
+      <h2 class="section-title" id="name-title" data-split="lines">{p.name.h2}</h2>
+      <p class="name__body">{p.name.text}</p>
+    </div>
+  </section>
+
+  <Blocks blocks={p.blocks} faqLabel={t.faqLabel} />
+</Base>
