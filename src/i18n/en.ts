@@ -306,7 +306,7 @@ const en = {
           { k: 'Experience', v: 'Five years of care in the UK' },
           { k: 'Work', v: 'Self-employed, with permanent right to work in the UK' },
           { k: 'Travel', v: 'Full driving licence, happy to travel' },
-          { k: 'Languages', v: 'English and Lithuanian' },
+          { k: 'Languages', v: 'English, Lithuanian and Russian' },
         ],
       },
       name: {

@@ -526,3 +526,6 @@ html.header-away .header { translate: 0 -100%; }
   .window__media { aspect-ratio: 4 / 3; }
   .window__caption { margin-top: 1.5rem; }
 }
+
+/* Current page keeps its full underline; on hover it warms to first light so it still answers. */
+@media (hover: hover) { .draw[aria-current]:hover { color: var(--c-ember); } }

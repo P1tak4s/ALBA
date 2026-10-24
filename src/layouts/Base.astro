@@ -46,8 +46,8 @@ const business = {
     { '@type': 'Country', name: 'United Kingdom' },
   ],
   knowsAbout: ['Live-in care', 'Companionship care', 'Dementia care', 'Parkinson’s disease care', 'Stroke rehabilitation support', 'Palliative care', 'End-of-life companionship', 'Hypnotherapy', 'Therapeutic massage', 'Reiki'],
-  knowsLanguage: ['en', 'lt'],
-  availableLanguage: ['English', 'Lithuanian'],
+  knowsLanguage: ['en', 'lt', 'ru'],
+  availableLanguage: ['English', 'Lithuanian', 'Russian'],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Care and wellbeing services',
@@ -67,7 +67,7 @@ const person = {
   worksFor: { '@id': `${site.url}/#business` },
   url: absolute(href('en', 'about')),
   image: absolute('/lina.jpg'),
-  knowsLanguage: ['en', 'lt'],
+  knowsLanguage: ['en', 'lt', 'ru'],
   telephone: '+44 7300 403632',
   email: site.email,
 };

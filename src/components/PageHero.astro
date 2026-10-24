@@ -13,7 +13,7 @@ const hasFigure = Astro.slots.has('figure');
   <div class="phero__text">
     {ask && <p class="ask" data-split="lines" data-intro>{ask}</p>}
     <h1 class="phero__title" data-split="lines" data-intro data-delay="0.15">{h1}</h1>
-    <p class="phero__lead" data-reveal="up" data-intro data-delay="0.45">{lead}</p>
+    <p class="phero__lead">{lead}</p>
     {ctas && (
       <div class="cta-row" data-reveal="up" data-intro data-delay="0.6">
         <a class="btn btn--ink" href={href(locale, 'contact')}><span class="btn__label">{t.book}</span></a>

@@ -9,9 +9,9 @@ const langShort: Record<Locale, string> = { en: 'EN', lt: 'LT', ru: 'RU' };
 ---
 <header class="header" data-header>
   <div class="header__bar wrap">
-    <a class="brand" href={href(locale, 'home')} aria-label={t.homeLabel}>
+    <a class="brand" href={href(locale, 'home')}>
       <Mark mode="scroll" we={0.9} class="brand__mark" />
-      <span class="brand__word" aria-hidden="true">{t.brandShort}<span class="brand__sub">{t.brandSub}</span></span>
+      <span class="brand__word">{t.brandShort} <span class="brand__sub">{t.brandSub}</span></span>
     </a>
 
     <nav class="nav" aria-label={t.navLabel}>
@@ -27,7 +27,7 @@ const langShort: Record<Locale, string> = { en: 'EN', lt: 'LT', ru: 'RU' };
         <li>
           <a class="langs__link draw" href={href(l, page ?? 'home')} hreflang={l} lang={l}
              aria-current={l === locale ? 'true' : undefined}
-             aria-label={dicts[l].langName}>{langShort[l]}</a>
+             title={dicts[l].langName}>{langShort[l]}<span class="sr-only">, {dicts[l].langName}</span></a>
         </li>
       ))}
     </ul>
@@ -45,9 +45,9 @@ const langShort: Record<Locale, string> = { en: 'EN', lt: 'LT', ru: 'RU' };
 
 <div class="menu" id="menu" hidden data-menu role="dialog" aria-modal="true" aria-label={t.menu}>
   <div class="menu__top wrap">
-    <a class="brand" href={href(locale, 'home')} aria-label={t.homeLabel}>
+    <a class="brand" href={href(locale, 'home')}>
       <Mark class="brand__mark" />
-      <span class="brand__word" aria-hidden="true">{t.brandShort}<span class="brand__sub">{t.brandSub}</span></span>
+      <span class="brand__word">{t.brandShort} <span class="brand__sub">{t.brandSub}</span></span>
     </a>
     <button class="menu-btn is-open" type="button" data-menu-close>
       <span class="menu-btn__label">{t.close}</span>

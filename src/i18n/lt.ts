@@ -29,7 +29,7 @@ const lt: Dict = {
     call: 'Skambinti 07300 403632',
     book: 'Susitarti dėl pokalbio',
     email: 'albalinasima25@icloud.com',
-    motto: 'Profesinės žinios. Žmogiškas buvimas. Laiminga bendrystė.',
+    motto: 'Profesinės žinios. Buvimas šalia. Laiminga bendrystė.',
     breadcrumbHome: 'Pradžia',
     finale: {
       h2: 'Pasikalbėkime. Pirmas pokalbis nemokamas.',
@@ -40,9 +40,9 @@ const lt: Dict = {
     footer: {
       pagesLabel: 'Puslapiai',
       area: 'Gyvenu Louth mieste, Lincolnshire grafystėje. Žmones prižiūriu apylinkėse ir toliau, o hipnoterapijos sesijos vyksta ir internetu, iš bet kurios JK vietos.',
-      coords: 'Louth stovi ant Grinvičo dienovidinio: 53,37° š. pl., 0° 0′.',
+      coords: 'Per Louth eina Grinvičo dienovidinis: 53,37° š. pl., 0° 0′.',
       agreement: 'Kliento sutartis ir konfidencialumas',
-      disclaimer: 'Alba Wellbeing teikia priežiūrą, draugiją ir pagalbą gerovei. Tai nepakeičia medicinos, slaugos ar skubiosios pagalbos. Ištikus nelaimei, skambinkite 999.',
+      disclaimer: 'Alba Wellbeing: priežiūra, draugija ir pagalba, kad žmogus jaustųsi geriau. Tai nepakeičia gydytojų, slaugos ar skubiosios pagalbos. Ištikus nelaimei, skambinkite 999.',
       rights: 'Lina Simavičiūtė, vadinama Alba.',
     },
     figure: {
@@ -55,21 +55,21 @@ const lt: Dict = {
 
   pages: {
     home: {
-      title: 'Slaugytoja, gyvenanti kartu, Louth ir Lincolnshire',
+      title: 'Slaugė, apsigyvenanti jūsų namuose, Louth ir Lincolnshire',
       description: 'Lina (Alba) turi medicininį išsilavinimą ir prižiūri žmones jų namuose Louth ir Lincolnshire: demencija, Parkinsono liga, insultas, paliatyvi priežiūra, draugija.',
       ask: '„Ar mama gali likti savo namuose?“',
-      h1: 'Taip, gali. Apsigyvensiu kartu ir prižiūrėsiu ją namuose.',
-      lead: 'Esu Lina, bet dauguma mane vadina Alba. Turiu medicininį išsilavinimą, o jau penkerius metus Jungtinėje Karalystėje gyvenu kartu su žmonėmis, kuriuos prižiūriu, jų pačių namuose. Padedu viskuo: nuo asmens higienos iki puodelio arbatos ir nuoširdaus pokalbio. Dirbu ilgam, todėl šeima visada žino, kas yra šalia.',
-      heroNote: 'Gyvenu Louth mieste, Lincolnshire. Vairuoju ir mielai atvykstu toliau.',
+      h1: 'Taip, gali. Atsikraustysiu pas ją ir prižiūrėsiu ją namuose.',
+      lead: 'Esu Lina, bet dauguma mane vadina Alba. Turiu medicininį išsilavinimą, o jau penkerius metus Jungtinėje Karalystėje gyvenu kartu su žmonėmis, kuriuos prižiūriu, jų pačių namuose. Padedu viskuo: nuo asmens higienos iki puodelio arbatos ir nuoširdaus pokalbio. Pas žmogų lieku ilgam, todėl šeima visada žino, kas yra šalia.',
+      heroNote: 'Gyvenu Louth mieste, Lincolnshire. Vairuoju, tad mielai atvažiuoju ir toliau.',
       questions: {
         h2: 'Ko dažniausiai klausia šeimos',
         intro: 'Pirmas skambutis beveik visada prasideda nerimu. Štai klausimai, kuriuos girdžiu dažniausiai, ir kaip paprastai padedu.',
         items: [
-          { q: 'Mama serga demencija. Ar kas nors galėtų gyventi kartu su ja?', a: 'Taip. Apsigyvenu kartu ir saugau jos įprastą dieną: mėgstamą maistą, mažus kasdienius ritualus, ramią draugiją ir asmens priežiūrą. Namai lieka namais, o mama lieka savimi.', link: 'liveIn', more: 'Priežiūra namuose' },
+          { q: 'Mama serga demencija. Ar kas nors galėtų gyventi kartu su ja?', a: 'Taip. Apsigyvenu kartu ir išlaikau jos įprastą dienotvarkę: mėgstamą maistą, mažus kasdienius ritualus, ramią draugiją ir asmens priežiūrą. Namai lieka namais, o mama lieka savimi.', link: 'liveIn', more: 'Priežiūra namuose' },
           { q: 'Tėtis po insulto grįžo iš ligoninės.', a: 'Laikausi kineziterapeutų plano, kasdien padrąsinu daryti pratimus ir anksti pastebiu mažus pokyčius. Einame jo tempu, ne manuoju.', link: 'liveIn', more: 'Pagalba sveikstant' },
           { q: 'Kas būna su ja naktį?', a: 'Kai gyvenu kartu, naktį esu namuose, todėl ji niekada nelieka viena. Jei reikia tik nakties priežiūros, galime susitarti ir dėl jos.', link: 'liveIn', more: 'Priežiūra naktį' },
           { q: 'Jam labiausiai trūksta draugijos ir pagalbos namuose.', a: 'Tai ne mažiau svarbu. Gaminu valgyti, apsiperku, tvarkau namus, kartu einame pas gydytojus ir visada randu laiko atsisėsti ir pasikalbėti.', link: 'liveIn', more: 'Draugija ir pagalba' },
-          { q: 'Artėja pabaiga. Ar galėtumėte pabūti su mumis?', a: 'Taip. Būsiu rami, švelni draugija jūsų artimajam, o šeimai duosiu progą pailsėti. Dirbu kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospiso komanda.', link: 'endOfLife', more: 'Palydėjimas gyvenimo pabaigoje' },
+          { q: 'Artėja pabaiga. Ar galėtumėte pabūti su mumis?', a: 'Taip. Ramiai ir švelniai pabūsiu su jūsų artimuoju, o šeima galės pailsėti. Dirbu kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospiso komanda.', link: 'endOfLife', more: 'Palydėjimas gyvenimo pabaigoje' },
           { q: 'Nuolat nerimauju ir negaliu atsipalaiduoti.', a: 'Hipnoterapija, atsipalaidavimo ir kvėpavimo sesijos padeda vėl pailsėti. Susitikti galime internetu iš bet kurios JK vietos arba gyvai netoli Louth.', link: 'hypno', more: 'Hipnoterapija' },
         ],
       },
@@ -96,14 +96,14 @@ const lt: Dict = {
         h2: 'Ką jums pažadu',
         items: [
           'Niekada jūsų neskubinsiu. Einame jūsų tempu.',
-          'Sutiksiu jus geranoriškai, be jokio smerkimo.',
-          'Sprendžiate jūs. Aš padedu, bet nevadovauju.',
+          'Su manimi galite kalbėti atvirai: niekas jūsų nesmerks.',
+          'Sprendžiate jūs. Aš padedu, bet už jus nesprendžiu.',
         ],
       },
       steps: {
         h2: 'Nuo ko pradedame',
         items: [
-          { title: 'Paskambinkite man', text: 'Arba parašykite SMS ar laišką. Papasakokite tiek, kiek norite: neteisingo būdo pradėti nėra.' },
+          { title: 'Paskambinkite man', text: 'Arba parašykite SMS ar laišką. Papasakokite tiek, kiek norite: nesvarbu, nuo ko pradėsite.' },
           { title: 'Susėdame ir pasikalbame', text: 'Dažniausiai namuose, prie arbatos puodelio. Pokalbis nemokamas, jokių anketų, niekas neskuba.' },
           { title: 'Susitariame kartu', text: 'Valandas, dienotvarkę ir sąžiningą kainą sutariame tiesiogiai. Tada atvykstu ir pradedame.' },
         ],
@@ -115,8 +115,8 @@ const lt: Dict = {
       description: 'Lina gyvena kartu su prižiūrimu žmogumi jo namuose netoli Louth: asmens priežiūra, pagalba sergant demencija ir po insulto, buitis, draugija.',
       crumb: 'Priežiūra namuose',
       ask: '„Ką reiškia priežiūra gyvenant kartu?“',
-      h1: 'Geras ir išmanantis žmogus, gyvenantis su jumis namuose.',
-      lead: 'Nereikia keltis į globos namus ir kas valandą sutikti vis naują veidą. Atsikraustau pas žmogų, kurį prižiūriu, dalijuosi jo kasdienybe dieną ir naktį, o su šeima bendradarbiauju taip, kad namai liktų namais.',
+      h1: 'Gyvenu kartu su jumis, todėl šalia visada yra savo darbą išmanantis žmogus.',
+      lead: 'Nereikia keltis į globos namus ir kaskart įsileisti vis kitą žmogų. Atsikraustau pas žmogų, kurį prižiūriu, dalijuosi jo kasdienybe dieną ir naktį, o su šeima bendradarbiauju taip, kad namai liktų namais.',
       image: { alt: 'Jauki svetainė su krėslu, minkštu pledu ir ryto šviesa pro užuolaidas', caption: 'Pažįstami kambariai, įprasta tvarka.' },
       serviceName: 'Priežiūra namuose gyvenant kartu ir draugija',
       blocks: [
@@ -139,7 +139,7 @@ const lt: Dict = {
           items: ['Demencija', 'Parkinsono liga', 'Insultas', 'Vėžys', 'Dauno sindromas', 'Ribotas judumas', 'Sudėtingi priežiūros poreikiai', 'Paliatyvi priežiūra ir gyvenimo pabaiga'],
         },
         {
-          type: 'prose', id: 'steady', h2: 'Kasdien tas pats veidas',
+          type: 'prose', id: 'steady', h2: 'Kasdien tas pats žmogus',
           paras: [
             'Ieškau ilgalaikio darbo ir ilgų atostogų neplanuoju. Su šeima sutartą pastovią dienotvarkę vertinu labiau nei besikeičiančias pamainas, nes ji visiems namuose suteikia saugumo jausmą.',
             'Tos dienotvarkės ribose lieku lanksti. Poreikiai keičiasi kas savaitę, kartais net kas valandą, ir gera priežiūra keičiasi kartu su jais.',
@@ -148,7 +148,7 @@ const lt: Dict = {
         {
           type: 'prose', id: 'rehab', h2: 'Sveikimas po ligoninės',
           paras: [
-            'Po insulto, griuvimo ar gulėjimo ligoninėje pažanga ateina iš mažų dalykų, daromų kiekvieną dieną. Laikausi kineziterapeutų ir priežiūros komandos plano, padrąsinu daryti pratimus, džiaugiuosi mažomis pergalėmis ir pasakoju šeimai, ką pastebiu.',
+            'Po insulto, griuvimo ar gulėjimo ligoninėje žmogus stiprėja po truputį, kasdien darydamas mažus dalykus. Laikausi kineziterapeutų ir priežiūros komandos plano, padrąsinu daryti pratimus, džiaugiuosi mažomis pergalėmis ir pasakoju šeimai, ką pastebiu.',
           ],
         },
         {
@@ -161,7 +161,7 @@ const lt: Dict = {
         {
           type: 'faq', id: 'faq', h2: 'Klausimai apie priežiūrą gyvenant kartu',
           items: [
-            { q: 'Kas yra priežiūra gyvenant kartu?', a: 'Slaugytoja apsigyvena žmogaus namuose ir padeda jam dieną bei naktį, todėl jam nereikia keltis į globos namus.' },
+            { q: 'Kas yra priežiūra gyvenant kartu?', a: 'Slaugė apsigyvena žmogaus namuose ir padeda jam dieną bei naktį, todėl keltis į globos namus nereikia.' },
             { q: 'Kuo tai skiriasi nuo lankomosios priežiūros?', a: 'Lankomieji darbuotojai užsuka trumpam, dažnai kaskart vis kitas žmogus. Gyvenant kartu visą dieną šalia yra tas pats pažįstamas žmogus, o naktį jis būna namuose.' },
             { q: 'Kuriose vietovėse dirbate?', a: 'Gyvenu Louth mieste, Lincolnshire, ir dirbu apylinkėse bei toliau. Turiu vairuotojo pažymėjimą ir dėl tinkamo ilgalaikio susitarimo mielai atvyksiu.' },
             { q: 'Kiek kainuoja priežiūra gyvenant kartu?', a: 'Kaina sutariama individualiai: ji priklauso nuo to, kiek pagalbos reikia, nuo valandų, dienotvarkės ir vietos. Pirmas pokalbis nemokamas, o kai suprasiu, ko reikia, pasakysiu aiškią sumą.' },
@@ -177,8 +177,8 @@ const lt: Dict = {
       description: 'Rami, neskubri draugija gyvenimo pabaigoje ir atokvėpis šeimai, namuose Lincolnshire. Kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospisu.',
       crumb: 'Gyvenimo pabaigoje',
       ask: '„Ar kas nors galėtų pabūti su mumis?“',
-      h1: 'Švelni draugija gyvenimo pabaigoje, kad niekas nebūtų vienas.',
-      lead: 'Rami draugija jūsų mylimam žmogui, o jums patikimos rankos šalia. Namuose ir tokiu tempu, koks atrodo tinkamas.',
+      h1: 'Būsiu šalia paskutinėmis dienomis, kad jūsų artimasis neliktų vienas.',
+      lead: 'Rami draugija jūsų mylimam žmogui, o jums patikimos rankos šalia. Namuose ir tiek neskubant, kiek jums reikia.',
       image: { alt: 'Džiovintos gėlės vazoje ant ramios palangės', caption: 'Laikas tiesiog pabūti kartu.' },
       serviceName: 'Palydėjimas gyvenimo pabaigoje ir paliatyvi draugija',
       blocks: [
@@ -193,7 +193,7 @@ const lt: Dict = {
           type: 'list', id: 'help', h2: 'Kuo galiu padėti',
           items: [
             'Rami draugija, pokalbiai ir skaitymas kartu',
-            'Švelnus padrąsinimas ir ranka, kurią galima laikyti',
+            'Švelnus padrąsinimas ir laikymas už rankos',
             'Būnu šalia, kad žmogus niekada neliktų vienas',
             'Atokvėpis, kad šeima galėtų pailsėti ir išsimiegoti',
             'Būnu ir naktį, iš anksto susitarus',
@@ -212,7 +212,7 @@ const lt: Dict = {
           items: [
             { q: 'Ar tai tas pats, kas slauga?', a: 'Ne. Tai draugija su praktine ir emocine pagalba, o ne reglamentuojama slauga ar gydymas. Už gydymą toliau atsako šeimos gydytojas, bendruomenės slaugytojai ir hospisas, o aš palaikau su jais ryšį.' },
             { q: 'Ką tai apima?', a: 'Ramią draugiją ir pokalbius, skaitymą kartu, švelnų padrąsinimą, buvimą šalia, kad žmogus neliktų vienas, ir laiką šeimai pailsėti. Viskas vyksta pagal paties žmogaus norus.' },
-            { q: 'Ar galite padėti ir mums, šeimai?', a: 'Taip. Šeimai irgi reikia rūpesčio. Galiu suteikti atokvėpį ir būti pastovus, patikimas žmogus šalia, kad prireikus galėtumėte pasitraukti.' },
+            { q: 'Ar galite padėti ir mums, šeimai?', a: 'Taip. Šeimai irgi reikia rūpesčio. Galiu suteikti atokvėpį ir būti pastovia, patikima pagalba šalia, kad prireikus galėtumėte pasitraukti.' },
             { q: 'Ar galite pabūti naktį?', a: 'Taip, iš anksto susitarus. Nakties priežiūrą ir gyvenimą kartu aptariame individualiai, pagal jūsų situaciją.' },
             { q: 'Nuo ko pradėti?', a: 'Tiesiog paskambinkite arba parašykite. Tinkamų žodžių ieškoti nereikia. Ramiai pasikalbėsime, kas padėtų, o pirmas pokalbis nemokamas.' },
           ],
@@ -233,12 +233,12 @@ const lt: Dict = {
         {
           type: 'prose', id: 'what', h2: 'Kas yra hipnoterapija',
           paras: [
-            'Hipnoterapija yra atsipalaidavusi, sutelkto dėmesio būsena, šiek tiek panaši į ramią akimirką tarp miego ir pabudimo. Tokioje būsenoje protas lengviau priima naudingus pasiūlymus, o įtampą ir senus įpročius paleisti tampa lengviau.',
-            'Man tai niekada nėra kontrolės praradimas ar savo galios atidavimas. Hipnoterapija remiasi pasitikėjimu, jaukumu, sutikimu ir laisva valia, taip pat laiku ir dėmesiu, kuriuos skiriate sau.',
+            'Hipnoterapija yra atsipalaidavusi, sutelkto dėmesio būsena, šiek tiek panaši į ramią akimirką tarp miego ir pabudimo. Tokioje būsenoje protas lengviau priima naudingas įtaigas, o įtampą ir senus įpročius paleisti tampa lengviau.',
+            'Man tai niekada nereiškia, kad prarandate kontrolę ar atiduodate savo valią kitam. Hipnoterapija remiasi pasitikėjimu, jaukumu, sutikimu ir laisva valia, taip pat laiku ir dėmesiu, kuriuos skiriate sau.',
           ],
         },
         {
-          type: 'list', id: 'helps', h2: 'Kuo ji gali padėti',
+          type: 'list', id: 'helps', h2: 'Kada ji gali padėti',
           items: [
             'Nerimas, rūpesčiai ir jausmas, kad visko per daug',
             'Stresas ir sunkumas atsipalaiduoti',
@@ -259,7 +259,7 @@ const lt: Dict = {
           type: 'terms', id: 'wellbeing', h2: 'Kita pagalba gerovei',
           intro: 'Žmonėms, kuriuos prižiūriu, šios sesijos visada neprivalomos ir siūlomos tik sutikus jiems patiems ir jų šeimai.',
           items: [
-            { title: 'Klinikinė hipnoterapija', text: 'Proto nuraminimas vedamose sesijose, jūsų tempu.' },
+            { title: 'Klinikinė hipnoterapija', text: 'Padedu nuraminti mintis, jūsų tempu.' },
             { title: 'Gydomasis masažas', text: 'Jaukumas, palengvėjimas ir atsipalaidavimas kūnui.' },
             { title: 'Reiki', text: 'Įtampos sušvelninimas ir ramybė.' },
             { title: 'Atsipalaidavimas ir kvėpavimas', text: 'Paprasti pratimai, kurie suramina kvėpavimą ir mintis.' },
@@ -279,8 +279,8 @@ const lt: Dict = {
     },
 
     about: {
-      title: 'Apie Liną Simavičiūtę (Albą), slaugytoją',
-      description: 'Lina, vadinama Alba: slaugytoja iš Lietuvos su medicininiu išsilavinimu ir penkerių metų patirtimi JK. Jos istorija, patirtis, vertybės ir darbo būdas.',
+      title: 'Apie Liną Simavičiūtę (Albą), slaugę',
+      description: 'Lina, vadinama Alba: slaugė iš Lietuvos su medicininiu išsilavinimu ir penkerių metų patirtimi JK. Jos istorija, patirtis, vertybės ir darbo būdas.',
       crumb: 'Apie Liną',
       ask: '„Kas gyvens kartu su mumis?“',
       h1: 'Sveiki, esu Lina. Dauguma mane vadina Alba.',
@@ -298,12 +298,12 @@ const lt: Dict = {
           { k: 'Patirtis', v: 'Penkeri metai priežiūros darbo JK' },
           { k: 'Darbas', v: 'Savarankiška veikla, nuolatinė teisė dirbti JK' },
           { k: 'Kelionės', v: 'Vairuotojo pažymėjimas, mielai atvykstu' },
-          { k: 'Kalbos', v: 'Anglų ir lietuvių' },
+          { k: 'Kalbos', v: 'Anglų, lietuvių ir rusų' },
         ],
       },
       name: {
         h2: 'Kodėl „Alba“?',
-        text: 'Alba vadina mane dauguma žmonių. Italų ir ispanų kalbomis šis žodis reiškia aušrą. Ženkle šalia vardo virš vieno horizonto kyla du lankai, vienas pilnas, kitas atviras: aš ir žmogus, kurį prižiūriu, kartu kuriame laimingą bendrystę.',
+        text: 'Dauguma žmonių mane vadina Alba. Italų ir ispanų kalbomis šis žodis reiškia aušrą. Ženkle šalia vardo virš vieno horizonto kyla du lankai, vienas pilnas, kitas atviras: aš ir žmogus, kurį prižiūriu, kartu kuriame laimingą bendrystę.',
       },
       blocks: [
         {
@@ -347,8 +347,8 @@ const lt: Dict = {
       crumb: 'Kontaktai',
       ask: '„Nuo ko išvis pradėti?“',
       h1: 'Pradėkime nuo arbatos puodelio ir pokalbio.',
-      lead: 'Trumpai papasakokite, kas vyksta namuose. Atsakysiu pati, ir jokių įsipareigojimų tai neužkrauna.',
-      image: { alt: 'Minkšti sulankstyti pledai ant patogaus krėslo prie lango', caption: 'Prisitraukite kėdę.' },
+      lead: 'Trumpai papasakokite, kas vyksta namuose. Atsakysiu pati, ir tai jūsų niekuo neįpareigoja.',
+      image: { alt: 'Minkšti sulankstyti pledai ant patogaus krėslo prie lango', caption: 'Prisėskite.' },
       direct: {
         h2: 'Skambinkite, rašykite SMS ar laišką',
         phoneLabel: 'Telefonas',
@@ -361,7 +361,7 @@ const lt: Dict = {
         name: 'Jūsų vardas',
         reach: 'Telefonas arba el. paštas atsakymui',
         who: 'Kam reikia pagalbos?',
-        whoOptions: ['Pasirinkite', 'Man pačiam', 'Mamai arba tėčiui', 'Sutuoktiniui ar partneriui', 'Kitam šeimos nariui', 'Kitam žmogui'],
+        whoOptions: ['Pasirinkite', 'Man', 'Mamai arba tėčiui', 'Sutuoktiniui ar partneriui', 'Kitam šeimos nariui', 'Kitam žmogui'],
         service: 'Kas padėtų?',
         serviceOptions: ['Pasirinkite', 'Priežiūra gyvenant kartu', 'Pagalba po ligoninės ar insulto', 'Draugija ir pagalba namuose', 'Palydėjimas gyvenimo pabaigoje', 'Hipnoterapija ar gerovės sesijos', 'Dar nežinau'],
         message: 'Jūsų žinutė',
