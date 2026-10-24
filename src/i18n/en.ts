@@ -181,7 +181,7 @@ const en = {
     },
 
     endOfLife: {
-      title: 'End-of-life and palliative companionship at home, across England',
+      title: 'End-of-life companionship at home, across England',
       description: 'Calm, unhurried companionship at the end of life, and respite for the family, at home anywhere in England. Alongside GPs, district nurses and hospice teams.',
       crumb: 'End of life',
       ask: '“Could someone sit with us?”',
@@ -351,7 +351,7 @@ const en = {
 
     contact: {
       title: 'Contact Lina for a free first chat',
-      description: 'Call, text or email Lina (Alba), live-in carer for families anywhere in England, about live-in care, end-of-life companionship or hypnotherapy. The first conversation is free.',
+      description: 'Call, text or email Lina (Alba) about live-in care anywhere in England, end-of-life companionship or hypnotherapy. The first chat is free.',
       crumb: 'Contact',
       ask: '“Where do we even start?”',
       h1: 'Let’s start with a cup of tea and a chat.',

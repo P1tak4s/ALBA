@@ -173,7 +173,7 @@ const lt: Dict = {
     },
 
     endOfLife: {
-      title: 'Palydėjimas gyvenimo pabaigoje namuose, visoje Anglijoje',
+      title: 'Palydėjimas gyvenimo pabaigoje, visoje Anglijoje',
       description: 'Rami, neskubri draugija gyvenimo pabaigoje ir atokvėpis šeimai, namuose bet kurioje Anglijos vietoje. Kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospisu.',
       crumb: 'Gyvenimo pabaigoje',
       ask: '„Ar kas nors galėtų pabūti su mumis?“',
@@ -343,7 +343,7 @@ const lt: Dict = {
 
     contact: {
       title: 'Susisiekite su Lina: pirmas pokalbis nemokamas',
-      description: 'Skambinkite, rašykite SMS ar laišką Linai (Albai), slaugei šeimoms visoje Anglijoje, dėl priežiūros namuose, palydėjimo gyvenimo pabaigoje ar hipnoterapijos. Pirmas pokalbis nemokamas.',
+      description: 'Skambinkite ar rašykite Linai (Albai) dėl priežiūros namuose visoje Anglijoje, palydėjimo gyvenimo pabaigoje ar hipnoterapijos. Pirmas pokalbis nemokamas.',
       crumb: 'Kontaktai',
       ask: '„Nuo ko išvis pradėti?“',
       h1: 'Pradėkime nuo arbatos puodelio ir pokalbio.',
