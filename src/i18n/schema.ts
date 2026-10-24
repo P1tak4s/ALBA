@@ -20,5 +20,5 @@ export const serviceSchema = (name: string, description: string, url: string, la
   url,
   inLanguage: lang,
   provider: { '@id': `${site.url}/#business` },
-  areaServed: [{ '@type': 'City', name: 'Louth' }, { '@type': 'AdministrativeArea', name: 'Lincolnshire' }],
+  areaServed: [{ '@type': 'Country', name: 'England' }],
 }];

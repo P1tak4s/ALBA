@@ -39,7 +39,7 @@ const lt: Dict = {
     },
     footer: {
       pagesLabel: 'Puslapiai',
-      area: 'Gyvenu Louth mieste, Lincolnshire grafystėje. Žmones prižiūriu apylinkėse ir toliau, o hipnoterapijos sesijos vyksta ir internetu, iš bet kurios JK vietos.',
+      area: 'Gyvenu Louth mieste, Lincolnshire grafystėje, o prižiūrėti žmonių atvykstu į bet kurią Anglijos vietą. Hipnoterapijos sesijos vyksta ir internetu, iš bet kurios JK vietos.',
       coords: 'Per Louth eina Grinvičo dienovidinis: 53,37° š. pl., 0° 0′.',
       agreement: 'Kliento sutartis ir konfidencialumas',
       disclaimer: 'Alba Wellbeing: priežiūra, draugija ir pagalba, kad žmogus jaustųsi geriau. Tai nepakeičia gydytojų, slaugos ar skubiosios pagalbos. Ištikus nelaimei, skambinkite 999.',
@@ -55,12 +55,12 @@ const lt: Dict = {
 
   pages: {
     home: {
-      title: 'Slaugė, apsigyvenanti jūsų namuose, Louth ir Lincolnshire',
-      description: 'Lina (Alba) turi medicininį išsilavinimą ir prižiūri žmones jų namuose Louth ir Lincolnshire: demencija, Parkinsono liga, insultas, paliatyvi priežiūra, draugija.',
+      title: 'Slaugė, apsigyvenanti jūsų namuose, visoje Anglijoje',
+      description: 'Lina (Alba) turi medicininį išsilavinimą ir prižiūri žmones jų namuose visoje Anglijoje: demencija, Parkinsono liga, insultas, paliatyvi priežiūra, draugija.',
       ask: '„Ar mama gali likti savo namuose?“',
       h1: 'Taip, gali. Atsikraustysiu pas ją ir prižiūrėsiu ją namuose.',
       lead: 'Esu Lina, bet dauguma mane vadina Alba. Turiu medicininį išsilavinimą, o jau penkerius metus Jungtinėje Karalystėje gyvenu kartu su žmonėmis, kuriuos prižiūriu, jų pačių namuose. Padedu viskuo: nuo asmens higienos iki puodelio arbatos ir nuoširdaus pokalbio. Pas žmogų lieku ilgam, todėl šeima visada žino, kas yra šalia.',
-      heroNote: 'Gyvenu Louth mieste, Lincolnshire. Vairuoju, tad mielai atvažiuoju ir toliau.',
+      heroNote: 'Atvykstu į bet kurią Anglijos vietą. Gyvenu Louth mieste, Lincolnshire.',
       questions: {
         h2: 'Ko dažniausiai klausia šeimos',
         intro: 'Pirmas skambutis beveik visada prasideda nerimu. Štai klausimai, kuriuos girdžiu dažniausiai, ir kaip paprastai padedu.',
@@ -111,8 +111,8 @@ const lt: Dict = {
     },
 
     liveIn: {
-      title: 'Priežiūra namuose gyvenant kartu, Lincolnshire',
-      description: 'Lina gyvena kartu su prižiūrimu žmogumi jo namuose netoli Louth: asmens priežiūra, pagalba sergant demencija ir po insulto, buitis, draugija.',
+      title: 'Priežiūra namuose gyvenant kartu, visoje Anglijoje',
+      description: 'Lina gyvena kartu su prižiūrimu žmogumi jo namuose bet kurioje Anglijos vietoje: asmens priežiūra, pagalba sergant demencija ir po insulto, buitis, draugija.',
       crumb: 'Priežiūra namuose',
       ask: '„Ką reiškia priežiūra gyvenant kartu?“',
       h1: 'Gyvenu kartu su jumis, todėl šalia visada yra savo darbą išmanantis žmogus.',
@@ -163,7 +163,7 @@ const lt: Dict = {
           items: [
             { q: 'Kas yra priežiūra gyvenant kartu?', a: 'Slaugė apsigyvena žmogaus namuose ir padeda jam dieną bei naktį, todėl keltis į globos namus nereikia.' },
             { q: 'Kuo tai skiriasi nuo lankomosios priežiūros?', a: 'Lankomieji darbuotojai užsuka trumpam, dažnai kaskart vis kitas žmogus. Gyvenant kartu visą dieną šalia yra tas pats pažįstamas žmogus, o naktį jis būna namuose.' },
-            { q: 'Kuriose vietovėse dirbate?', a: 'Gyvenu Louth mieste, Lincolnshire, ir dirbu apylinkėse bei toliau. Turiu vairuotojo pažymėjimą ir dėl tinkamo ilgalaikio susitarimo mielai atvyksiu.' },
+            { q: 'Kuriose vietovėse dirbate?', a: 'Visoje Anglijoje. Kadangi gyvenu kartu su prižiūrimu žmogumi, atstumas netrukdo: atsikraustau ten, kur jis gyvena. Mano namai Louth mieste, Lincolnshire, ir turiu vairuotojo pažymėjimą.' },
             { q: 'Kiek kainuoja priežiūra gyvenant kartu?', a: 'Kaina sutariama individualiai: ji priklauso nuo to, kiek pagalbos reikia, nuo valandų, dienotvarkės ir vietos. Pirmas pokalbis nemokamas, o kai suprasiu, ko reikia, pasakysiu aiškią sumą.' },
             { q: 'Ar dirbate per agentūrą?', a: 'Ne. Dirbu savarankiškai, todėl priežiūrą sutariate tiesiogiai su manimi. Rekomendacijas mielai pateiksiu.' },
             { q: 'Ar siūlote ir gerovės sesijų?', a: 'Taip, jei jų norima: hipnoterapija, gydomasis masažas, Reiki ir kvėpavimo sesijos. Visada tik sutikus pačiam žmogui ir jo šeimai.' },
@@ -173,8 +173,8 @@ const lt: Dict = {
     },
 
     endOfLife: {
-      title: 'Palydėjimas gyvenimo pabaigoje, Louth',
-      description: 'Rami, neskubri draugija gyvenimo pabaigoje ir atokvėpis šeimai, namuose Lincolnshire. Kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospisu.',
+      title: 'Palydėjimas gyvenimo pabaigoje namuose, visoje Anglijoje',
+      description: 'Rami, neskubri draugija gyvenimo pabaigoje ir atokvėpis šeimai, namuose bet kurioje Anglijos vietoje. Kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospisu.',
       crumb: 'Gyvenimo pabaigoje',
       ask: '„Ar kas nors galėtų pabūti su mumis?“',
       h1: 'Būsiu šalia paskutinėmis dienomis, kad jūsų artimasis neliktų vienas.',
@@ -343,7 +343,7 @@ const lt: Dict = {
 
     contact: {
       title: 'Susisiekite su Lina: pirmas pokalbis nemokamas',
-      description: 'Skambinkite, rašykite SMS ar laišką Linai (Albai) Louth mieste dėl priežiūros namuose, palydėjimo gyvenimo pabaigoje ar hipnoterapijos. Pirmas pokalbis nemokamas.',
+      description: 'Skambinkite, rašykite SMS ar laišką Linai (Albai), slaugei šeimoms visoje Anglijoje, dėl priežiūros namuose, palydėjimo gyvenimo pabaigoje ar hipnoterapijos. Pirmas pokalbis nemokamas.',
       crumb: 'Kontaktai',
       ask: '„Nuo ko išvis pradėti?“',
       h1: 'Pradėkime nuo arbatos puodelio ir pokalbio.',

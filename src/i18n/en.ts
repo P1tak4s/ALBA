@@ -47,7 +47,7 @@ const en = {
     },
     footer: {
       pagesLabel: 'Pages',
-      area: 'I live in Louth, Lincolnshire, and care for people in the surrounding area and further afield. Hypnotherapy is also available online, anywhere in the UK.',
+      area: 'I am based in Louth, Lincolnshire, and take live-in care placements anywhere in England. Hypnotherapy is also available online, anywhere in the UK.',
       coords: 'Louth sits right on the Greenwich meridian: 53.37° N, 0° 0′.',
       agreement: 'Client agreement and confidentiality',
       disclaimer: 'Alba Wellbeing offers care, companionship and wellbeing support. It does not replace medical, nursing or emergency care. In an emergency, call 999.',
@@ -63,12 +63,12 @@ const en = {
 
   pages: {
     home: {
-      title: 'Live-in carer in Louth, Lincolnshire',
-      description: 'Lina (Alba) is a medically trained, self-employed live-in carer in Louth, Lincolnshire: dementia, Parkinson’s, stroke, palliative care and companionship at home.',
+      title: 'Live-in carer across England, based in Lincolnshire',
+      description: 'Lina (Alba) is a medically trained, self-employed live-in carer working anywhere in England: dementia, Parkinson’s, stroke, palliative care and companionship at home.',
       ask: '“Can Mum stay in her own home?”',
       h1: 'Yes, she can. I’ll move in and care for her at home.',
       lead: 'I’m Lina, though most people call me Alba. I’m a medically trained carer, and for five years I have lived alongside people in their own homes here in the UK. I help with everything from personal care to a cup of tea and a proper chat, and I stay for the long term, so your family always knows who is there.',
-      heroNote: 'Based in Louth, Lincolnshire. I drive, and I’m happy to travel.',
+      heroNote: 'I come to you anywhere in England. Based in Louth, Lincolnshire.',
       questions: {
         h2: 'The questions families ask me',
         intro: 'Most first phone calls begin with a worry. These are the ones I hear most often, and how I usually help.',
@@ -119,8 +119,8 @@ const en = {
     },
 
     liveIn: {
-      title: 'Live-in care and companionship in Lincolnshire',
-      description: 'Self-employed live-in carer based in Louth: personal care, dementia and stroke support, rehabilitation, housekeeping and companionship in your own home.',
+      title: 'Live-in care and companionship anywhere in England',
+      description: 'Self-employed live-in carer, available anywhere in England: personal care, dementia and stroke support, rehabilitation, housekeeping and companionship in your own home.',
       crumb: 'Live-in care',
       ask: '“What does live-in care actually mean?”',
       h1: 'Someone kind and trained, living with you at home.',
@@ -171,7 +171,7 @@ const en = {
           items: [
             { q: 'What is live-in care?', a: 'A carer lives in the person’s home and supports them through the day and night, so they can stay at home instead of moving into a care home.' },
             { q: 'How is it different from visiting carers?', a: 'Visiting carers come for short calls, often a different person each time. With live-in care, one familiar person is there all day and in the house overnight.' },
-            { q: 'Which areas do you cover?', a: 'I live in Louth, Lincolnshire, and work in the surrounding area and further afield. I have a full driving licence and I am happy to travel for the right long-term arrangement.' },
+            { q: 'Which areas do you cover?', a: 'Anywhere in England. Because I live in with the person I care for, distance is no obstacle: I move to wherever they are. My own home is in Louth, Lincolnshire, and I hold a full driving licence.' },
             { q: 'How much does live-in care cost?', a: 'Fees are agreed individually, depending on how much support is needed, the hours, the routine and the location. The first chat is free, and once I understand what is needed I will give you a clear figure.' },
             { q: 'Do you work through an agency?', a: 'No. I am self-employed, so you arrange care directly with me. I am happy to share references.' },
             { q: 'Do you also offer wellbeing sessions?', a: 'Yes, if they are welcome: hypnotherapy, therapeutic massage, Reiki and breathing sessions, always with the agreement of the person and their family.' },
@@ -181,8 +181,8 @@ const en = {
     },
 
     endOfLife: {
-      title: 'End-of-life and palliative companionship in Louth',
-      description: 'Calm, unhurried companionship at the end of life, and respite for the family, at home in Lincolnshire. Alongside GPs, district nurses and hospice teams.',
+      title: 'End-of-life and palliative companionship at home, across England',
+      description: 'Calm, unhurried companionship at the end of life, and respite for the family, at home anywhere in England. Alongside GPs, district nurses and hospice teams.',
       crumb: 'End of life',
       ask: '“Could someone sit with us?”',
       h1: 'A gentle presence at the end of life, so no one has to be alone.',
@@ -351,7 +351,7 @@ const en = {
 
     contact: {
       title: 'Contact Lina for a free first chat',
-      description: 'Call, text or email Lina (Alba) in Louth, Lincolnshire about live-in care, end-of-life companionship or hypnotherapy. The first conversation is free.',
+      description: 'Call, text or email Lina (Alba), live-in carer for families anywhere in England, about live-in care, end-of-life companionship or hypnotherapy. The first conversation is free.',
       crumb: 'Contact',
       ask: '“Where do we even start?”',
       h1: 'Let’s start with a cup of tea and a chat.',
