@@ -2,8 +2,11 @@
 // Renders a page's content blocks on the two hanging lines (col 1 headings, col 7 text).
 // FAQ questions are set in the visitor's voice (Literata italic), answers in Onest.
 import type { Block } from '../i18n/en';
-interface Props { blocks: Block[]; faqLabel: string }
-const { blocks } = Astro.props;
+import { areas, areaHref } from '../i18n/areas';
+interface Props { blocks: Block[]; faqLabel: string; lang?: string }
+const { blocks, lang = 'en' } = Astro.props;
+// Area pages and the cost guide are English only; flag the language on links from LT and RU.
+const enOnly = lang === 'en' ? undefined : 'en';
 ---
 {blocks.map((b, i) => {
   if (b.type === 'note') return (
@@ -35,6 +38,11 @@ const { blocks } = Astro.props;
         {b.type === 'terms' && <>
           {b.intro && <p class="block__intro">{b.intro}</p>}
           <dl class="terms">{b.items.map((it) => <div class="terms__item"><dt>{it.title}</dt><dd>{it.text}</dd></div>)}</dl>
+        </>}
+        {b.type === 'areas' && <>
+          <p class="block__intro">{b.intro}</p>
+          <ul class="ticks">{areas.map((a) => <li><a class="link" href={areaHref(a.slug)} hreflang={enOnly}>{a.name}</a></li>)}</ul>
+          <p>{b.costsBefore} <a class="link" href="/live-in-care-cost.html" hreflang={enOnly}>{b.costsLink}</a>.</p>
         </>}
         {b.type === 'faq' && (
           <div class="faq">

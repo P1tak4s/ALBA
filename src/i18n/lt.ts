@@ -42,6 +42,7 @@ const lt: Dict = {
       area: 'Gyvenu Louth mieste, Lincolnshire grafystėje, o prižiūrėti žmonių atvykstu į bet kurią Anglijos vietą. Hipnoterapijos sesijos vyksta ir internetu, iš bet kurios JK vietos.',
       coords: 'Per Louth eina Grinvičo dienovidinis: 53,37° š. pl., 0° 0′.',
       agreement: 'Kliento sutartis ir konfidencialumas',
+      costs: 'Priežiūros kainos Anglijoje',
       disclaimer: 'Alba Wellbeing: priežiūra, draugija ir pagalba, kad žmogus jaustųsi geriau. Tai nepakeičia gydytojų, slaugos ar skubiosios pagalbos. Ištikus nelaimei, skambinkite 999.',
       rights: 'Lina Simavičiūtė, vadinama Alba.',
     },
@@ -156,6 +157,12 @@ const lt: Dict = {
           paras: [
             'Šeimą nuolat informuoju, o dirbu kartu su šeimos gydytojais, bendruomenės slaugytojais ir kitais specialistais. Priežiūrą sutariate tiesiogiai su manimi: dirbu savarankiškai, ne per agentūrą.',
           ],
+        },
+        {
+          type: 'areas', id: 'areas', h2: 'Kur Anglijoje dirbu',
+          intro: 'Apsigyvenu pas žmogų bet kurioje Anglijos vietoje. Kiekvienam regionui skirtas atskiras puslapis anglų kalba: jame rasite miestus ir kiek trunka kelionė iš Louth.',
+          costsBefore: 'Kiek Anglijoje paprastai kainuoja tokia priežiūra, rasite',
+          costsLink: 'gide anglų kalba',
         },
         { type: 'note', text: 'Atkreipkite dėmesį: reglamentuojamos slaugos ar gydymo neteikiu. Dirbu kartu su specialistais, kurie tai daro.' },
         {

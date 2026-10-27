@@ -1,0 +1,45 @@
+---
+// England area pages, English only: /live-in-care/<area>.html. Copy lives in src/i18n/areas.ts.
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Blocks from '../../components/Blocks.astro';
+import { absolute, dicts, href } from '../../i18n';
+import type { Block } from '../../i18n/en';
+import { areas, areaHref, areaSharedFaq, type Area } from '../../i18n/areas';
+import { faqSchema, serviceSchema } from '../../i18n/schema';
+
+export const getStaticPaths = () => areas.map((a) => ({ params: { area: a.slug }, props: { a } }));
+const { a } = Astro.props as { a: Area };
+const d = dicts.en;
+const live = d.pages.liveIn;
+const url = absolute(areaHref(a.slug));
+const help = live.blocks.find((b) => 'id' in b && b.id === 'help');
+
+const blocks: Block[] = [
+  { type: 'list', id: 'places', h2: `Where I work in ${a.name}`, intro: a.places.intro, items: a.places.items, outro: 'If your town is not on the list, it is still covered. Call or text me.' },
+  { type: 'prose', id: 'local', h2: a.local.h2, paras: a.local.paras },
+  { type: 'prose', id: 'journey', h2: 'Getting to you', paras: a.journey },
+  ...(help ? [help] : []),
+  { type: 'note', text: 'Please note: I do not provide regulated nursing or medical treatment. I work alongside GPs, district nurses and hospice teams.' },
+  { type: 'faq', id: 'faq', h2: `Questions from families in ${a.name}`, items: [...a.faq, ...areaSharedFaq] },
+];
+const service = serviceSchema(`Live-in care in ${a.name}`, a.description, url, 'en-GB').map((s) => ({
+  ...s,
+  areaServed: [{ '@type': 'AdministrativeArea', name: a.name, containedInPlace: { '@type': 'Country', name: 'England' } }],
+}));
+const schema = [...service, ...faqSchema(blocks, url)];
+const others = areas.filter((o) => o.slug !== a.slug);
+---
+<Base locale="en" page={null} path={areaHref(a.slug)} parent={{ name: live.crumb, path: href('en', 'liveIn') }}
+      title={a.title} description={a.description} crumb={a.name} schema={schema}>
+  <PageHero locale="en" ask={`“Is there a live-in carer near us in ${a.name}?”`} h1={a.h1} lead={a.lead} />
+  <Blocks blocks={blocks} faqLabel={d.common.faqLabel} />
+  <section class="block wrap" aria-labelledby="more-title">
+    <h2 class="block__title" id="more-title">More about live-in care</h2>
+    <div class="block__body">
+      <p>Read <a class="link" href={href('en', 'liveIn')}>what live-in care with me looks like</a>, what it typically <a class="link" href="/live-in-care-cost.html">costs in England</a>, or <a class="link" href={href('en', 'about')}>a little about me</a>.</p>
+      <p class="block__intro">Other parts of England I cover:</p>
+      <ul class="ticks">{others.map((o) => <li><a class="link" href={areaHref(o.slug)}>Live-in care in {o.name}</a></li>)}</ul>
+    </div>
+  </section>
+</Base>

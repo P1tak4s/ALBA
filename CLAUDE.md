@@ -55,4 +55,7 @@ Jokio ilgojo brūkšnio (U+2014) niekur.
 ## SEO / GEO
 - `/sitemap.xml` generuojamas (`src/pages/sitemap.xml.ts`), su hreflang alternatyvomis. `robots.txt` aiškiai leidžia AI robotus. `llms.txt` su faktais.
 - Kiekvienas puslapis: unikalus title/description, canonical, hreflang en-GB/lt-LT/ru + x-default, OG/Twitter, JSON-LD @graph (WebSite, LocalBusiness+ProfessionalService, Person, WebPage, BreadcrumbList, Service, FAQPage).
+- **Anglijos regionų puslapiai** (tik EN): `/live-in-care/<regionas>.html`, tekstas `src/i18n/areas.ts`, šablonas `src/pages/live-in-care/[area].astro`. 10 puslapių (Lincolnshire + 9 regionai), kiekvienas ~67-71 % unikalaus teksto. Nedaryk puslapio kiekvienam miestui (doorway rizika): miestai vardijami regionų sąrašuose.
+- **Kainų gidas** (tik EN): `/live-in-care-cost.html` (`src/pages/live-in-care-cost.astro`), rinkos kainos su šaltiniais, patikrinta 2026-10-27. Atnaujink kasmet.
+- **IndexNow** raktas `public/2b321020e551bf0a309a1d1c55e090a2.txt`: po diegimo pinguok `api.indexnow.org` (Bing, per jį ChatGPT paieška).
 - QA: `npm run build`, serveris ant 4400, `node ~/.claude/skills/awwwards/scripts/audit.mjs http://127.0.0.1:4400/` (tikslas 0 FAIL, 0 WARN).

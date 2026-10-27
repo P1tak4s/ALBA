@@ -18,5 +18,5 @@ const schema = [...serviceSchema(p.serviceName, p.description, url, locale), ...
   <PageHero locale={locale} ask={p.ask} h1={p.h1} lead={p.lead}>
     <ArchPhoto slot="figure" src={photo} alt={p.image.alt} caption={p.image.caption} priority />
   </PageHero>
-  <Blocks blocks={p.blocks} faqLabel={d.common.faqLabel} />
+  <Blocks blocks={p.blocks} faqLabel={d.common.faqLabel} lang={locale} />
 </Base>

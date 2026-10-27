@@ -1,0 +1,133 @@
+---
+// Guide: what live-in care costs in England (English only). Market figures are quoted from named
+// sources with the date they were checked; never state them as Alba's own prices.
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Blocks from '../components/Blocks.astro';
+import { absolute, dicts, href, site } from '../i18n';
+import type { Block } from '../i18n/en';
+import { areas, areaHref } from '../i18n/areas';
+import { faqSchema } from '../i18n/schema';
+
+const path = '/live-in-care-cost.html';
+const url = absolute(path);
+const checked = '2026-10-27';
+const title = 'How much does live-in care cost in England? (2026)';
+const description = 'Live-in care in England typically costs £1,200 to £2,000 a week in 2026. Agency, introductory and self-employed carers compared, care home costs, and help with paying.';
+
+const sources = [
+  { name: 'Home Instead: cost of live-in care', url: 'https://homeinstead.co.uk/care/live-in/cost' },
+  { name: 'Age Space: cost of live-in care', url: 'https://www.agespace.org/care/cost-of-live-in-care' },
+  { name: 'GOV.UK: Attendance Allowance', url: 'https://www.gov.uk/attendance-allowance' },
+  { name: 'NHS: NHS continuing healthcare', url: 'https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/' },
+  { name: 'NHS: getting a needs assessment', url: 'https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/' },
+  { name: 'CQC: scope of registration, exemptions', url: 'https://www.cqc.org.uk/guidance-providers/scope-registration-general-exceptions-and-exemptions-registration' },
+  { name: 'GOV.UK: check employment status for tax', url: 'https://www.gov.uk/guidance/check-employment-status-for-tax' },
+];
+
+const blocks: Block[] = [
+  {
+    type: 'prose', id: 'short-answer', h2: 'The short answer',
+    paras: [
+      'Most UK care guides put full-time live-in care at roughly £1,200 to £2,000 a week in 2026. Through a fully managed agency it usually sits towards the top of that range. Through an introductory agency, or arranged directly with a self-employed carer, it is usually lower. Your own figure depends on how much help is needed, nights, location and who covers the carer’s breaks.',
+      'These are typical market figures from the sources listed at the end of this page, not my prices. My own fee is agreed individually after a free chat.',
+    ],
+  },
+  {
+    type: 'terms', id: 'three-ways', h2: 'Three ways to arrange live-in care',
+    intro: 'The same week of care can cost very different amounts depending on who organises it.',
+    items: [
+      { title: 'A fully managed agency', text: 'The agency employs or manages the carer, plans the care, arranges cover for breaks and is regulated by the Care Quality Commission (CQC). Home Instead puts agency live-in care at around £1,350 to £2,000 a week. You pay for the management as well as the care.' },
+      { title: 'An introductory agency', text: 'The agency introduces a self-employed carer and takes a fee, then you and the carer agree the day-to-day care. Home Instead puts this at around £1,000 to £1,500, and Age Space says the introduction fee is often about 12.5% of the weekly cost.' },
+      { title: 'Directly with a self-employed carer', text: 'You find the carer yourself, meet, check references, and agree the fee, the routine and the breaks directly. There is no agency fee, so more of what you pay goes to the person doing the care. This is how I work.' },
+    ],
+  },
+  {
+    type: 'list', id: 'what-changes', h2: 'What changes the price',
+    items: [
+      'How much help is needed: companionship and housekeeping costs less than full personal care, dementia care or complex needs',
+      'Nights: a carer who sleeps in the house costs less than one who has to stay awake through the night',
+      'Couples: one live-in carer for two people costs more than for one, but usually far less than two care home places',
+      'Where you live: prices in London and the South East tend to be higher',
+      'Breaks: a live-in carer needs daily rest and regular time off, and someone has to cover those hours',
+      'Extras: the carer needs their own bedroom, and their food during the placement is usually provided by the household',
+    ],
+  },
+  {
+    type: 'prose', id: 'care-home', h2: 'Live-in care or a care home?',
+    paras: [
+      'Care home fees vary even more than live-in care. Home Instead quotes Age UK figures of around £800 to £1,078 a week on average, while Age Space says fees often range from £1,200 to £1,800 a week, and nursing homes cost more again.',
+      'For one person with high needs, a care home can be cheaper. For a couple who want to stay together, or for someone who would struggle with a move, live-in care often costs about the same and keeps them at home, with their own routine, their own bed and one familiar face.',
+    ],
+  },
+  {
+    type: 'terms', id: 'help-paying', h2: 'Help with paying for care',
+    intro: 'It is worth checking all of these before deciding what you can afford.',
+    items: [
+      { title: 'Attendance Allowance', text: 'A benefit for people over State Pension age who need help with personal care because of an illness or disability. It is not means-tested, so savings and income do not count, and it can be spent on care at home.' },
+      { title: 'A council needs assessment', text: 'Your local council will assess what help is needed, free of charge, and then look at income and savings. If the council contributes, you can ask for the money as direct payments, which can be used to pay for care you arrange yourself.' },
+      { title: 'NHS continuing healthcare', text: 'If someone’s needs are mainly health needs, the NHS may pay for all of their care, including care at home. It is assessed by the local NHS integrated care board. Ask the GP, district nurse or hospital team for an assessment.' },
+    ],
+  },
+  {
+    type: 'list', id: 'questions', h2: 'Questions to ask any carer or agency',
+    items: [
+      'Can I speak to people you have cared for before, or their families?',
+      'What exactly is included in the weekly fee, and what is extra?',
+      'How do breaks and time off work, and who covers them?',
+      'What happens if you are ill, or if we need to end the arrangement?',
+      'Do you have insurance and an up-to-date DBS check?',
+      'Who do we call at night if something worries us?',
+    ],
+  },
+  {
+    type: 'prose', id: 'self-employed', h2: 'Is a self-employed carer allowed to give personal care?',
+    paras: [
+      'Agencies that provide personal care must be registered with the CQC. A carer who works directly for one person, under that person’s or their family’s direction, is generally outside CQC registration, which is why references and a careful first conversation matter so much. If you pay a carer directly and are unsure about tax and employment status, HMRC’s free check employment status for tax tool will give you an answer.',
+    ],
+  },
+  {
+    type: 'faq', id: 'faq', h2: 'Common questions about the cost of live-in care',
+    items: [
+      { q: 'How much is a live-in carer per week in England?', a: 'Typically about £1,200 to £2,000 a week in 2026, according to UK care guides. Managed agencies are usually at the top of that range, introductory agencies and self-employed carers lower.' },
+      { q: 'Is live-in care cheaper than a care home?', a: 'Sometimes. For a couple, or for someone who wants to stay at home, it is often similar in cost. For one person with very high needs, a care home can be cheaper. Compare written quotes for both.' },
+      { q: 'Does the council pay for live-in care?', a: 'It can. Ask your council for a free needs assessment. If they contribute after the financial assessment, direct payments can be used to pay for care you arrange yourself.' },
+      { q: 'Does the NHS pay for live-in care?', a: 'If someone qualifies for NHS continuing healthcare because their needs are mainly health needs, the NHS can fund their care at home in full.' },
+      { q: 'How much do you charge, Lina?', a: 'My fee is agreed individually, depending on the care needed, the routine and where you live. The first chat is free, and once I understand what is needed I give you a clear figure.' },
+    ],
+  },
+];
+const schema = [
+  {
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: title,
+    description,
+    url,
+    inLanguage: 'en-GB',
+    datePublished: checked,
+    dateModified: checked,
+    author: { '@id': `${site.url}/#business` },
+    publisher: { '@id': `${site.url}/#business` },
+    mainEntityOfPage: { '@id': `${url}#webpage` },
+    image: absolute('/og.png'),
+    citation: sources.map((s) => s.url),
+  },
+  ...faqSchema(blocks, url),
+];
+const d = dicts.en;
+---
+<Base locale="en" page={null} path={path} parent={{ name: d.pages.liveIn.crumb, path: href('en', 'liveIn') }}
+      title="Live-in care costs in England, 2026" description={description} crumb="Live-in care costs" schema={schema}>
+  <PageHero locale="en" ask="“How much does live-in care cost?”" h1="What live-in care costs in England, and how to pay for it."
+            lead="A plain guide for families: typical weekly prices in 2026, why they differ, how they compare with a care home, and where to look for help with the cost." />
+  <Blocks blocks={blocks} faqLabel={d.common.faqLabel} />
+  <section class="block wrap" aria-labelledby="sources-title">
+    <h2 class="block__title" id="sources-title">Sources</h2>
+    <div class="block__body">
+      <p class="block__intro">Figures checked on 27 October 2026. Prices change, so always ask for a written quote.</p>
+      <ul class="ticks">{sources.map((s) => <li><a class="link" href={s.url} rel="noopener">{s.name}</a></li>)}</ul>
+      <p>Looking for a live-in carer? Read <a class="link" href={href('en', 'liveIn')}>how I work</a>, or see the parts of England I cover: {areas.map((a, i) => <><a class="link" href={areaHref(a.slug)}>{a.name}</a>{i < areas.length - 1 ? ', ' : '.'}</>)}</p>
+    </div>
+  </section>
+</Base>

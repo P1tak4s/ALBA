@@ -8,6 +8,7 @@ export type Block =
   | { type: 'terms'; id?: string; h2: string; intro?: string; items: { title: string; text: string }[] }
   | { type: 'statement'; id?: string; h2: string; quote: string; paras: string[]; close?: string }
   | { type: 'note'; text: string }
+  | { type: 'areas'; id?: string; h2: string; intro: string; costsBefore: string; costsLink: string }
   | { type: 'faq'; id?: string; h2: string; items: { q: string; a: string }[] };
 
 const en = {
@@ -50,6 +51,7 @@ const en = {
       area: 'I am based in Louth, Lincolnshire, and take live-in care placements anywhere in England. Hypnotherapy is also available online, anywhere in the UK.',
       coords: 'Louth sits right on the Greenwich meridian: 53.37° N, 0° 0′.',
       agreement: 'Client agreement and confidentiality',
+      costs: 'Live-in care costs',
       disclaimer: 'Alba Wellbeing offers care, companionship and wellbeing support. It does not replace medical, nursing or emergency care. In an emergency, call 999.',
       rights: 'Lina Simavičiūtė, known as Alba.',
     },
@@ -164,6 +166,12 @@ const en = {
           paras: [
             'I keep the family in the loop and work alongside GPs, district nurses and other professionals. You arrange care directly with me, as a self-employed carer, not through an agency.',
           ],
+        },
+        {
+          type: 'areas', id: 'areas', h2: 'Where in England I work',
+          intro: 'I move in with the person I care for anywhere in England. Each region has its own page, with the towns I cover and how long the journey from Louth takes.',
+          costsBefore: 'Wondering what live-in care usually costs? Read',
+          costsLink: 'my 2026 guide to live-in care costs in England',
         },
         { type: 'note', text: 'Please note: I do not provide regulated nursing or medical treatment. I work alongside the professionals who do.' },
         {

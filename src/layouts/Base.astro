@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { absolute, dicts, href, locales, site, type Locale, type PageKey } from '../i18n';
+import { areas, areaHref } from '../i18n/areas';
 import '../styles/tokens.css';
 import '../styles/base.css';
 import '../styles/site.css';
@@ -16,12 +17,15 @@ interface Props {
   schema?: Record<string, unknown>[];
   noindex?: boolean;
   finale?: boolean;
+  path?: string;             // canonical path for English-only pages outside PageKey (areas, guides)
+  parent?: { name: string; path: string }; // middle breadcrumb for those pages
+  pageType?: string;         // schema.org type of the page node, WebPage by default
 }
-const { locale, page, title, description, crumb, schema = [], noindex = false, finale = true } = Astro.props;
+const { locale, page, title, description, crumb, schema = [], noindex = false, finale = true, path, parent, pageType } = Astro.props;
 const d = dicts[locale];
 const t = d.common;
 const fullTitle = `${title} | ${t.brand}`;
-const canonical = page ? absolute(href(locale, page)) : undefined;
+const canonical = page ? absolute(href(locale, page)) : path ? absolute(path) : undefined;
 const ogImage = absolute('/og.png');
 const hreflang: Record<Locale, string> = { en: 'en-GB', lt: 'lt-LT', ru: 'ru' };
 
@@ -43,6 +47,7 @@ const business = {
   areaServed: [
     { '@type': 'Country', name: 'England' },
     { '@type': 'Country', name: 'United Kingdom' },
+    ...areas.map((a) => ({ '@type': 'AdministrativeArea', name: a.name, url: absolute(areaHref(a.slug)) })),
   ],
   knowsAbout: ['Live-in care', 'Companionship care', 'Dementia care', 'Parkinson’s disease care', 'Stroke rehabilitation support', 'Palliative care', 'End-of-life companionship', 'Hypnotherapy', 'Therapeutic massage', 'Reiki'],
   knowsLanguage: ['en', 'lt', 'ru'],
@@ -77,7 +82,7 @@ const graph: Record<string, unknown>[] = [
 ];
 if (canonical) {
   graph.push({
-    '@type': page === 'about' ? 'AboutPage' : page === 'contact' ? 'ContactPage' : 'WebPage',
+    '@type': pageType ?? (page === 'about' ? 'AboutPage' : page === 'contact' ? 'ContactPage' : 'WebPage'),
     '@id': `${canonical}#webpage`,
     url: canonical,
     name: fullTitle,
@@ -93,7 +98,8 @@ if (canonical) {
     '@id': `${canonical}#breadcrumb`,
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: t.breadcrumbHome, item: absolute(href(locale, 'home')) },
-      { '@type': 'ListItem', position: 2, name: crumb, item: canonical },
+      ...(parent ? [{ '@type': 'ListItem', position: 2, name: parent.name, item: absolute(parent.path) }] : []),
+      { '@type': 'ListItem', position: parent ? 3 : 2, name: crumb, item: canonical },
     ],
   });
 }
