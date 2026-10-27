@@ -55,7 +55,7 @@ const business = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Care and wellbeing services',
-    itemListElement: (['liveIn', 'endOfLife', 'hypno'] as const).map((k) => ({
+    itemListElement: (['liveIn', 'reset', 'endOfLife', 'hypno'] as const).map((k) => ({
       '@type': 'Offer',
       itemOffered: { '@type': 'Service', name: dicts.en.pages[k].serviceName, url: absolute(href('en', k)) },
     })),

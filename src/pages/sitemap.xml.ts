@@ -4,7 +4,7 @@ import { absolute, files, href, locales, type PageKey } from '../i18n';
 import { areas, areaHref } from '../i18n/areas';
 
 const hreflang = { en: 'en-GB', lt: 'lt-LT', ru: 'ru' } as const;
-const priority: Record<PageKey, string> = { home: '1.0', liveIn: '0.9', endOfLife: '0.8', hypno: '0.8', about: '0.8', contact: '0.7', consent: '0.3' };
+const priority: Record<PageKey, string> = { home: '1.0', liveIn: '0.9', reset: '0.8', endOfLife: '0.8', hypno: '0.8', about: '0.8', contact: '0.7', consent: '0.3' };
 
 export const GET: APIRoute = () => {
   const today = new Date().toISOString().slice(0, 10);

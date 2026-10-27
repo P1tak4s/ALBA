@@ -18,6 +18,7 @@ const lt: Dict = {
     homeLabel: 'Alba Wellbeing, pradžia',
     nav: {
       liveIn: 'Priežiūra namuose',
+      reset: 'Trumpalaikė priežiūra',
       endOfLife: 'Gyvenimo pabaigoje',
       hypno: 'Hipnoterapija',
       about: 'Apie Liną',
@@ -68,6 +69,7 @@ const lt: Dict = {
         items: [
           { q: 'Mama serga demencija. Ar kas nors galėtų gyventi kartu su ja?', a: 'Taip. Apsigyvenu kartu ir išlaikau jos įprastą dienotvarkę: mėgstamą maistą, mažus kasdienius ritualus, ramią draugiją ir asmens priežiūrą. Namai lieka namais, o mama lieka savimi.', link: 'liveIn', more: 'Priežiūra namuose' },
           { q: 'Tėtis po insulto grįžo iš ligoninės.', a: 'Laikausi kineziterapeutų plano, kasdien padrąsinu daryti pratimus ir anksti pastebiu mažus pokyčius. Einame jo tempu, ne manuoju.', link: 'liveIn', more: 'Pagalba sveikstant' },
+          { q: 'Tėtis silpsta, norime, kad jis vėl atsigautų.', a: 'Galiu kelis mėnesius pagyventi kartu ir padėti jam susikurti dienotvarkę: reguliariai valgyti, lengvai mankštintis, pakankamai išsimiegoti. Kai išvykstu, dienotvarkė lieka.', link: 'reset', more: 'Trumpalaikė priežiūra' },
           { q: 'Kas būna su ja naktį?', a: 'Kai gyvenu kartu, naktį esu namuose, todėl ji niekada nelieka viena. Jei reikia tik nakties priežiūros, galime susitarti ir dėl jos.', link: 'liveIn', more: 'Priežiūra naktį' },
           { q: 'Jam labiausiai trūksta draugijos ir pagalbos namuose.', a: 'Tai ne mažiau svarbu. Gaminu valgyti, apsiperku, tvarkau namus, kartu einame pas gydytojus ir visada randu laiko atsisėsti ir pasikalbėti.', link: 'liveIn', more: 'Draugija ir pagalba' },
           { q: 'Artėja pabaiga. Ar galėtumėte pabūti su mumis?', a: 'Taip. Ramiai ir švelniai pabūsiu su jūsų artimuoju, o šeima galės pailsėti. Dirbu kartu su šeimos gydytoju, bendruomenės slaugytojais ir hospiso komanda.', link: 'endOfLife', more: 'Palydėjimas gyvenimo pabaigoje' },
@@ -172,8 +174,100 @@ const lt: Dict = {
             { q: 'Kuo tai skiriasi nuo lankomosios priežiūros?', a: 'Lankomieji darbuotojai užsuka trumpam, dažnai kaskart vis kitas žmogus. Gyvenant kartu visą dieną šalia yra tas pats pažįstamas žmogus, o naktį jis būna namuose.' },
             { q: 'Kuriose vietovėse dirbate?', a: 'Visoje Anglijoje. Kadangi gyvenu kartu su prižiūrimu žmogumi, atstumas netrukdo: atsikraustau ten, kur jis gyvena. Mano namai Louth mieste, Lincolnshire, ir turiu vairuotojo pažymėjimą.' },
             { q: 'Kiek kainuoja priežiūra gyvenant kartu?', a: 'Kaina sutariama individualiai: ji priklauso nuo to, kiek pagalbos reikia, nuo valandų, dienotvarkės ir vietos. Pirmas pokalbis nemokamas, o kai suprasiu, ko reikia, pasakysiu aiškią sumą.' },
+            { q: 'Ar galite atvykti trumpesniam laikui?', a: 'Taip. Galiu ir trumpiau: kelis mėnesius pagyventi kartu ir padėti žmogui susikurti sveiką dienotvarkę, kurią šeima galėtų tęsti.' },
             { q: 'Ar dirbate per agentūrą?', a: 'Ne. Dirbu savarankiškai, todėl priežiūrą sutariate tiesiogiai su manimi. Rekomendacijas mielai pateiksiu.' },
             { q: 'Ar siūlote ir gerovės sesijų?', a: 'Taip, jei jų norima: hipnoterapija, gydomasis masažas, Reiki ir kvėpavimo sesijos. Visada tik sutikus pačiam žmogui ir jo šeimai.' },
+          ],
+        },
+      ] as Block[],
+    },
+
+    reset: {
+      title: 'Keli mėnesiai kartu ir sveika dienotvarkė',
+      description: 'Kelis mėnesius, dažnai apie tris, gyvenu kartu su žmogumi ir padedu susikurti dienotvarkę: mityba, judėjimas, miegas. Kai išvykstu, ji lieka.',
+      crumb: 'Trumpalaikė priežiūra',
+      ask: '„Ar namuose dar gali būti geriau?“',
+      h1: 'Keli mėnesiai kartu ir dienotvarkė, kuri išlieka.',
+      lead: 'Kartais žmogui slaugės nereikia visam laikui. Jam reikia gero starto: kad kas nors kurį laiką, dažnai apie tris mėnesius, pagyventų kartu ir padėtų susikurti dienotvarkę, nuo kurios jis stiprėtų. Kai išvykstu, dienotvarkė lieka.',
+      image: {
+        alt: 'Arbatos puodelis ir džiovintos gėlės ant palangės švelnioje ryto šviesoje',
+        caption: 'Maži dalykai, kartojami kasdien.',
+      },
+      serviceName: 'Trumpalaikė priežiūra gyvenant kartu',
+      blocks: [
+        {
+          type: 'prose',
+          id: 'how',
+          h2: 'Kaip tai vyksta',
+          paras: [
+            'Apsigyvenu pas jus sutartam laikui, paprastai keliems mėnesiams. Pirmiausia stebiu ir klausausi: kaip dabar praeina diena, kas sekasi sunkiai, kas teikia džiaugsmo, ką patarė gydytojai ir kineziterapeutai.',
+            'Tada po truputį kartu keičiame dienotvarkę. Maži pokyčiai, kartojami kasdien, ilgainiui tampa įpročiais.',
+            'Artėjant pabaigai dienotvarkę surašau ir perduodu žmogui bei šeimai, kad ji tęstųsi ir man išvykus.',
+          ],
+        },
+        {
+          type: 'list',
+          id: 'what',
+          h2: 'Ką keičiame kartu',
+          items: [
+            'Maitinimąsi: valgome reguliariai ir sočiai, valgiaraštį planuojame ir gaminame kartu, laikydamiesi gydytojo ar dietologo patarimų',
+            'Judėjimą: kasdien lengvai mankštinamės ir darome kineziterapeuto skirtus pratimus',
+            'Dienos ritmą: miegas, poilsis ir veikla kasdien tuo pačiu laiku',
+            'Vaistus: geriame laiku, kaip paskyrė gydytojas',
+            'Išėjimus iš namų: pasivaikščiojimai, apsipirkimas, susitikimai su draugais',
+            'Ramybę ir pasitikėjimą savimi: kvėpavimo pratimai, atsipalaidavimas, o jei norite, ir hipnoterapija',
+            'Šeimos vaidmenį: paprastai paaiškinu, kaip visa tai palaikyti',
+          ],
+        },
+        {
+          type: 'list',
+          id: 'who',
+          h2: 'Kam tai gali padėti',
+          items: [
+            'Grįžusiems namo po ligoninės, griuvimo ar insulto',
+            'Praradusiems pasitikėjimą savimi arba nebeišeinantiems iš namų',
+            'Sergantiems ankstyvos stadijos demencija, kai tvirta dienotvarkė padeda labiausiai',
+            'Gyvenantiems vieniems, kai dienos prarado ritmą',
+            'Šeimoms, kurios nori viską gerai sutvarkyti prieš spręsdamos dėl ilgalaikės priežiūros',
+          ],
+        },
+        {
+          type: 'prose',
+          id: 'goal',
+          h2: 'Tikslas: savarankiškumas',
+          paras: [
+            'Nenoriu, kad žmogus nuo manęs priklausytų. Siekiu priešingo: išvykdama noriu palikti jį stipresnį, labiau pasitikintį savimi ir su kasdienybe, kuri jam tinka. Jei paaiškės, kad priežiūros reikia ilgiau, galime susitarti dėl ilgalaikės priežiūros namuose.',
+          ],
+        },
+        {
+          type: 'note',
+          text: 'Atkreipkite dėmesį: nesu dietologė ar kineziterapeutė. Laikausi žmogaus gydytojo, dietologo, kineziterapeuto ir priežiūros komandos patarimų ir padedu juos pritaikyti kasdienybėje.',
+        },
+        {
+          type: 'faq',
+          id: 'faq',
+          h2: 'Klausimai apie trumpalaikę priežiūrą',
+          items: [
+            {
+              q: 'Kiek laiko tai trunka?',
+              a: 'Sutariame kartu. Dažnai apie tris mėnesius: per tiek laiko nauji įpročiai spėja įsitvirtinti. Gali būti ir trumpiau, ir ilgiau.',
+            },
+            {
+              q: 'Ar tai tas pats, kas NHS „reablement“?',
+              a: 'Ne. Po ligoninės savivaldybė ar NHS kartais siūlo nemokamus trumpalaikius vizitus, dažniausiai iki šešių savaičių, kad žmogus atgautų savarankiškumą. Mano paslauga privati: gyvenu kartu su jumis, namuose esu dieną ir naktį, paprastai ilgiau.',
+            },
+            {
+              q: 'Kur dirbate?',
+              a: 'Bet kurioje Anglijos vietoje. Atvykstu ir apsigyvenu pas jus.',
+            },
+            {
+              q: 'Kiek tai kainuoja?',
+              a: 'Kainą sutariame individualiai pagal tai, kiek reikia pagalbos, kokia dienotvarkė ir kur gyvenate. Pirmas pokalbis nemokamas.',
+            },
+            {
+              q: 'Kas bus, kai išvyksite?',
+              a: 'Dienotvarkė liks. Ją surašau, o šeima žino, kaip ją palaikyti.',
+            },
           ],
         },
       ] as Block[],

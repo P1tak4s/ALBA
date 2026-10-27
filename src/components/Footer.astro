@@ -30,6 +30,7 @@ const year = new Date().getFullYear();
       <ul>
         <li><a class="draw" href={href(locale, 'home')}>{t.breadcrumbHome}</a></li>
         {navPages.map((p) => <li><a class="draw" href={href(locale, p)}>{t.nav[p as keyof typeof t.nav]}</a></li>)}
+        <li><a class="draw" href={href(locale, 'reset')}>{t.nav.reset}</a></li>
         <li><a class="draw" href="/live-in-care-cost.html" hreflang={locale === 'en' ? undefined : 'en'}>{t.footer.costs}</a></li>
         <li><a class="draw" href={href(locale, 'consent')}>{t.footer.agreement}</a></li>
       </ul>

@@ -6,12 +6,13 @@ export type Locale = 'en' | 'lt' | 'ru';
 export const locales: Locale[] = ['en', 'lt', 'ru'];
 export const dicts: Record<Locale, Dict> = { en, lt, ru };
 
-export type PageKey = 'home' | 'liveIn' | 'endOfLife' | 'hypno' | 'about' | 'contact' | 'consent';
+export type PageKey = 'home' | 'liveIn' | 'reset' | 'endOfLife' | 'hypno' | 'about' | 'contact' | 'consent';
 
 // File names are the live URLs since 2026-06; keep them so links and rankings survive.
 export const files: Record<PageKey, string> = {
   home: '',
   liveIn: 'live-in-care.html',
+  reset: 'short-term-live-in-care.html',
   endOfLife: 'end-of-life.html',
   hypno: 'hypnotherapy.html',
   about: 'about.html',

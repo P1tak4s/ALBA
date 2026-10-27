@@ -27,6 +27,7 @@ const en = {
     homeLabel: 'Alba Wellbeing, home',
     nav: {
       liveIn: 'Live-in care',
+      reset: 'Short-term care',
       endOfLife: 'End of life',
       hypno: 'Hypnotherapy',
       about: 'About Lina',
@@ -77,6 +78,7 @@ const en = {
         items: [
           { q: 'Mum has dementia. Could someone live with her?', a: 'Yes. I move in and keep her days familiar: the food she likes, her own little routines, calm company and personal care. Home stays home, and she stays herself.', link: 'liveIn', more: 'Live-in care' },
           { q: 'Dad has come home from hospital after a stroke.', a: 'I follow the plan from his physiotherapists, cheer him on with the exercises every day, and notice the small changes early. We go at his pace, never mine.', link: 'liveIn', more: 'Help with recovery' },
+          { q: 'Dad is getting weaker. We want him back on his feet.', a: 'I can live with him for a few months and help him build a daily routine: regular meals, gentle exercise, proper sleep. When I leave, the routine stays.', link: 'reset', more: 'Short-term live-in care' },
           { q: 'Who will be with her at night?', a: 'With live-in care, I am in the house through the night, so she is never on her own. If you only need someone overnight, we can arrange that too.', link: 'liveIn', more: 'Night-time care' },
           { q: 'He mostly needs company, and a hand with the house.', a: 'That matters just as much. I cook, do the shopping, keep the house tidy, go to appointments with him and always make time to sit down and talk.', link: 'liveIn', more: 'Companionship' },
           { q: 'We are near the end. Could you sit with us?', a: 'Yes. I can be a quiet, gentle presence for the person, and give the family a chance to rest, alongside the GP, district nurses and hospice team.', link: 'endOfLife', more: 'End-of-life care' },
@@ -181,8 +183,100 @@ const en = {
             { q: 'How is it different from visiting carers?', a: 'Visiting carers come for short calls, often a different person each time. With live-in care, one familiar person is there all day and in the house overnight.' },
             { q: 'Which areas do you cover?', a: 'Anywhere in England. Because I live in with the person I care for, distance is no obstacle: I move to wherever they are. My own home is in Louth, Lincolnshire, and I hold a full driving licence.' },
             { q: 'How much does live-in care cost?', a: 'Fees are agreed individually, depending on how much support is needed, the hours, the routine and the location. The first chat is free, and once I understand what is needed I will give you a clear figure.' },
+            { q: 'Can you come for a shorter time?', a: 'Yes. As well as long-term care, I can live in for a few months and help the person build a healthy daily routine that the family can keep going.' },
             { q: 'Do you work through an agency?', a: 'No. I am self-employed, so you arrange care directly with me. I am happy to share references.' },
             { q: 'Do you also offer wellbeing sessions?', a: 'Yes, if they are welcome: hypnotherapy, therapeutic massage, Reiki and breathing sessions, always with the agreement of the person and their family.' },
+          ],
+        },
+      ] as Block[],
+    },
+
+    reset: {
+      title: 'Short-term live-in care to build healthy routines',
+      description: 'For a few months, often around three, I live with you and help build a daily routine for meals, movement and sleep that stays after I leave.',
+      crumb: 'Short-term live-in care',
+      ask: '“Could things get better at home?”',
+      h1: 'A few months together, and a routine that lasts.',
+      lead: 'Sometimes a person does not need a carer forever. They need a good start: someone who lives with them for a while, often around three months, and helps them build a daily routine that makes them stronger. When I leave, the routine stays.',
+      image: {
+        alt: 'A cup of tea and dried flowers on a windowsill in soft morning light',
+        caption: 'Small things, done every day.',
+      },
+      serviceName: 'Short-term live-in care and healthy routines',
+      blocks: [
+        {
+          type: 'prose',
+          id: 'how',
+          h2: 'How it works',
+          paras: [
+            'I move in for an agreed time, usually a few months. First I watch and listen: how the day goes now, what is hard, what brings joy, and what the doctors and physiotherapists have advised.',
+            'Then, step by step, we change the routine together. Small changes, repeated every day, slowly become habits.',
+            'Towards the end I write the routine down and hand it over to the person and the family, so it carries on after I leave.',
+          ],
+        },
+        {
+          type: 'list',
+          id: 'what',
+          h2: 'What we work on together',
+          items: [
+            'Regular, nourishing meals, planned and cooked together, following any advice from the doctor or dietitian',
+            'Gentle movement every day, and the exercises from the physiotherapist',
+            'A steady rhythm of sleep, rest and daytime activity',
+            'Medication on time, as prescribed',
+            'Getting out of the house: walks, shopping, seeing friends',
+            'Calm and confidence: breathing, relaxation and, if wanted, hypnotherapy',
+            'Simple ways for the family to keep it all going',
+          ],
+        },
+        {
+          type: 'list',
+          id: 'who',
+          h2: 'Who it can help',
+          items: [
+            'People coming home after hospital, a fall or a stroke',
+            'Someone who has lost confidence or stopped going out',
+            'People in the early stages of dementia, when a firm routine helps most',
+            'Someone living alone whose days have lost their shape',
+            'Families who want to set things up well before deciding about long-term care',
+          ],
+        },
+        {
+          type: 'prose',
+          id: 'goal',
+          h2: 'The aim is independence',
+          paras: [
+            'I do not want anyone to depend on me. My aim is the opposite: to leave the person stronger, more confident and with a daily life that works for them. If it turns out that longer care is needed, we can talk about live-in care that continues.',
+          ],
+        },
+        {
+          type: 'note',
+          text: 'Please note: I am not a dietitian or a physiotherapist. I follow the advice of the person’s GP, dietitian, physiotherapist and care team, and help put it into everyday life.',
+        },
+        {
+          type: 'faq',
+          id: 'faq',
+          h2: 'Questions about short-term live-in care',
+          items: [
+            {
+              q: 'How long does it last?',
+              a: 'We agree that together. Often around three months: long enough for new habits to settle. It can be shorter or longer.',
+            },
+            {
+              q: 'Is this the same as NHS reablement?',
+              a: 'No. After a hospital stay, the council or the NHS sometimes offers free short-term visits, usually for up to six weeks, to help people regain independence. Mine is private and live-in: I am in the house day and night, and usually for longer.',
+            },
+            {
+              q: 'Where do you work?',
+              a: 'Anywhere in England. I come and live with you.',
+            },
+            {
+              q: 'How much does it cost?',
+              a: 'The fee is agreed individually, depending on how much help is needed, the routine and where you live. The first chat is free.',
+            },
+            {
+              q: 'What happens when you leave?',
+              a: 'The routine stays. I write it down, and the family knows how to keep it going.',
+            },
           ],
         },
       ] as Block[],

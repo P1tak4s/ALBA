@@ -37,7 +37,7 @@ const others = areas.filter((o) => o.slug !== a.slug);
   <section class="block wrap" aria-labelledby="more-title">
     <h2 class="block__title" id="more-title">More about live-in care</h2>
     <div class="block__body">
-      <p>Read <a class="link" href={href('en', 'liveIn')}>what live-in care with me looks like</a>, what it typically <a class="link" href="/live-in-care-cost.html">costs in England</a>, or <a class="link" href={href('en', 'about')}>a little about me</a>.</p>
+      <p>Read <a class="link" href={href('en', 'liveIn')}>what live-in care with me looks like</a>, what it typically <a class="link" href="/live-in-care-cost.html">costs in England</a>, how <a class="link" href={href('en', 'reset')}>a few months of live-in support can build healthy routines</a>, or <a class="link" href={href('en', 'about')}>a little about me</a>.</p>
       <p class="block__intro">Other parts of England I cover:</p>
       <ul class="ticks">{others.map((o) => <li><a class="link" href={areaHref(o.slug)}>Live-in care in {o.name}</a></li>)}</ul>
     </div>
